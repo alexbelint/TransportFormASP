@@ -1,0 +1,194 @@
+﻿@model TransportFormASP.Models.RequestSp
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequestSp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookCars.CarId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookCars.CarId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookETSNG.Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookETSNG.Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookGNG.Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookGNG.Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookLandOwn.LandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookLandOwn.LandId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookOtpr.OtprId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookOtpr.OtprId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookOwner.OwnerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookOwner.OwnerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookOwnFirm.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookOwnFirm.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookStatus.NameStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookStatus.NameStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Request.RequestNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Request.RequestNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRefBookStationFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRefBookStationFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRefBookStationTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRefBookStationTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeTransportation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeTransportation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDangers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDangers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountCars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountCars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountWagon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountWagon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestSpNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestSpNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRequestSpInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRequestSpInput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idSender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idSender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRecipient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRecipient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idBorderCrossFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idBorderCrossFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idBorderCrossIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idBorderCrossIn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idRequestSp }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
