@@ -1,0 +1,1452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BTLCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CargoUnitNumber">
+          <Key>
+            <PropertyRef Name="idCargoUnitNumber" />
+          </Key>
+          <Property Name="idCargoUnitNumber" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CargoUnitNumber" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="DateMonth">
+          <Key>
+            <PropertyRef Name="idDateMonth" />
+          </Key>
+          <Property Name="idDateMonth" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateMonth" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DepartuePoint">
+          <Key>
+            <PropertyRef Name="idDepartuePoint" />
+          </Key>
+          <Property Name="idDepartuePoint" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="75" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DepartuePort">
+          <Key>
+            <PropertyRef Name="idDepartuePort" />
+          </Key>
+          <Property Name="idDepartuePort" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DestinationPoint">
+          <Key>
+            <PropertyRef Name="idDestinationPoint" />
+          </Key>
+          <Property Name="idDestinationPoint" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="75" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DestinationPort">
+          <Key>
+            <PropertyRef Name="idDestinationPort" />
+          </Key>
+          <Property Name="idDestinationPort" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RailwayDispatch">
+          <Key>
+            <PropertyRef Name="idRailwayDispatch" />
+          </Key>
+          <Property Name="idRailwayDispatch" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DispatchType" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SpecialCondition">
+          <Key>
+            <PropertyRef Name="idSpecialCondition" />
+          </Key>
+          <Property Name="idSpecialCondition" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SpecialCondition" Type="nvarchar" MaxLength="75" />
+        </EntityType>
+        <EntityType Name="TranshipmentMethod">
+          <Key>
+            <PropertyRef Name="idTranshipmentMethod" />
+          </Key>
+          <Property Name="idTranshipmentMethod" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TranshipmentMethod" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TransportationRequest">
+          <Key>
+            <PropertyRef Name="idTransportationRequest" />
+          </Key>
+          <Property Name="idTransportationRequest" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idTranshipmentMethod" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idDateMonth" Type="uniqueidentifier" />
+          <Property Name="idRefBookLandFrom" Type="uniqueidentifier" />
+          <Property Name="idRefBookLandTo" Type="uniqueidentifier" />
+          <Property Name="idRefBookETSNG" Type="uniqueidentifier" />
+          <Property Name="idRefBookGNG" Type="uniqueidentifier" />
+          <Property Name="DeliveryType" Type="varchar" MaxLength="50" />
+          <Property Name="RefBookStationFrom" Type="uniqueidentifier" />
+          <Property Name="RefBookStationTo" Type="uniqueidentifier" />
+          <Property Name="idDepartuePoint" Type="uniqueidentifier" />
+          <Property Name="idDestinationPoint" Type="uniqueidentifier" />
+          <Property Name="idDepartuePort" Type="uniqueidentifier" />
+          <Property Name="idDestinationPort" Type="uniqueidentifier" />
+          <Property Name="Shipper" Type="uniqueidentifier" />
+          <Property Name="Consignee" Type="uniqueidentifier" />
+          <Property Name="idRailwayDispatch" Type="uniqueidentifier" />
+          <Property Name="idRefBookCars" Type="uniqueidentifier" />
+          <Property Name="idRefBookOwner" Type="uniqueidentifier" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="CargoUnitAmmount" Type="int" />
+          <Property Name="idCargoUnitNumber" Type="uniqueidentifier" />
+          <Property Name="idSpecialCondition" Type="uniqueidentifier" />
+          <Property Name="Note" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RefBookCars">
+          <Key>
+            <PropertyRef Name="idRefBookCars" />
+          </Key>
+          <Property Name="idRefBookCars" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="CarId" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Model" Type="nvarchar" MaxLength="250" />
+          <Property Name="GP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Volume" Type="nvarchar" MaxLength="10" />
+          <Property Name="Axis" Type="nvarchar" MaxLength="5" />
+          <Property Name="TareW" Type="nvarchar" MaxLength="10" />
+          <Property Name="CarType" Type="nvarchar" MaxLength="20" />
+          <Property Name="Gross" Type="nvarchar" MaxLength="10" />
+          <Property Name="Length" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="RefBookClient">
+          <Key>
+            <PropertyRef Name="idRefBookClient" />
+          </Key>
+          <Property Name="idRefBookClient" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="UNN" Type="nvarchar" MaxLength="20" />
+          <Property Name="idRefBookLand" Type="uniqueidentifier" />
+          <Property Name="AddressLegal" Type="nvarchar" MaxLength="250" />
+          <Property Name="DirectorPositionIP" Type="nvarchar" MaxLength="100" />
+          <Property Name="DirectorSurnameIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookerPositionIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookerSurnameIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectorSurnameRP" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectorPositionRP" Type="nvarchar" MaxLength="100" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="250" />
+          <Property Name="BankCity" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RefBookETSNG">
+          <Key>
+            <PropertyRef Name="idRefBookETSNG" />
+          </Key>
+          <Property Name="idRefBookETSNG" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="Kod" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ClassN" Type="nvarchar" MaxLength="5" />
+          <Property Name="MinNew" Type="nvarchar" MaxLength="30" />
+          <Property Name="KodGNG8" Type="nvarchar" MaxLength="10" />
+          <Property Name="PID" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="RefBookGNG">
+          <Key>
+            <PropertyRef Name="idRefBookGNG" />
+          </Key>
+          <Property Name="idRefBookGNG" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="Kod" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ClassETT" Type="nvarchar" MaxLength="5" />
+          <Property Name="KodETSNG" Type="nvarchar" MaxLength="10" />
+          <Property Name="ETnPos" Type="nvarchar" MaxLength="10" />
+          <Property Name="PID" Type="nvarchar" MaxLength="10" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RefBookLand">
+          <Key>
+            <PropertyRef Name="idRefBookLand" />
+          </Key>
+          <Property Name="idRefBookLand" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="LandId" Type="nvarchar" MaxLength="10" />
+          <Property Name="LName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RName" Type="nvarchar" MaxLength="10" />
+          <Property Name="Land_Int" Type="nvarchar" MaxLength="10" />
+          <Property Name="Land_OSJD" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="RefBookOwner">
+          <Key>
+            <PropertyRef Name="idRefBookOwner" />
+          </Key>
+          <Property Name="idRefBookOwner" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="OwnerId" Type="nvarchar" MaxLength="10" />
+          <Property Name="OwnerDsc" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RefBookStations">
+          <Key>
+            <PropertyRef Name="idRefBookStation" />
+          </Key>
+          <Property Name="idRefBookStation" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateDownload" Type="datetime" Nullable="false" />
+          <Property Name="Kod" Type="nvarchar" MaxLength="10" />
+          <Property Name="NewCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewName" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewParaT" Type="nvarchar" MaxLength="30" />
+          <Property Name="VrParAdd" Type="nvarchar" MaxLength="30" />
+          <Property Name="VrParDel" Type="nvarchar" MaxLength="30" />
+          <Property Name="Road" Type="nvarchar" MaxLength="50" />
+          <Property Name="Land" Type="nvarchar" MaxLength="50" />
+          <Property Name="LinkCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="RoadID" Type="nvarchar" MaxLength="5" />
+          <Property Name="LandID" Type="nvarchar" MaxLength="5" />
+          <Property Name="RoadAbbr" Type="nvarchar" MaxLength="10" />
+          <Property Name="LandAbbr" Type="nvarchar" MaxLength="10" />
+          <Property Name="PID" Type="nvarchar" MaxLength="10" />
+          <Property Name="DP" Type="nvarchar" MaxLength="50" />
+          <Property Name="PPLand" Type="nvarchar" MaxLength="5" />
+          <Property Name="RegName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OblSity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParagTxt" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__RefBookCl__idRef__4258AA70">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="RefBookClient">
+              <PropertyRef Name="idRefBookLand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RefBookCl__idRef__7ED7A8CB">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="RefBookClient">
+              <PropertyRef Name="idRefBookLand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_CargoUnitNumber">
+          <End Role="CargoUnitNumber" Type="Self.CargoUnitNumber" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoUnitNumber">
+              <PropertyRef Name="idCargoUnitNumber" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idCargoUnitNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DateMonth">
+          <End Role="DateMonth" Type="Self.DateMonth" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DateMonth">
+              <PropertyRef Name="idDateMonth" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDateMonth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DepartuePoint">
+          <End Role="DepartuePoint" Type="Self.DepartuePoint" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartuePoint">
+              <PropertyRef Name="idDepartuePoint" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDepartuePoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DepartuePort">
+          <End Role="DepartuePort" Type="Self.DepartuePort" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartuePort">
+              <PropertyRef Name="idDepartuePort" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDepartuePort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DestinationPoint">
+          <End Role="DestinationPoint" Type="Self.DestinationPoint" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DestinationPoint">
+              <PropertyRef Name="idDestinationPoint" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDestinationPoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DestinationPort">
+          <End Role="DestinationPort" Type="Self.DestinationPort" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DestinationPort">
+              <PropertyRef Name="idDestinationPort" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDestinationPort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RailwayDispatch">
+          <End Role="RailwayDispatch" Type="Self.RailwayDispatch" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RailwayDispatch">
+              <PropertyRef Name="idRailwayDispatch" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRailwayDispatch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookCars">
+          <End Role="RefBookCars" Type="Self.RefBookCars" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookCars">
+              <PropertyRef Name="idRefBookCars" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookClient">
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookClient">
+              <PropertyRef Name="idRefBookClient" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="Shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookClient1">
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookClient">
+              <PropertyRef Name="idRefBookClient" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="Consignee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookETSNG">
+          <End Role="RefBookETSNG" Type="Self.RefBookETSNG" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookETSNG">
+              <PropertyRef Name="idRefBookETSNG" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookETSNG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookGNG">
+          <End Role="RefBookGNG" Type="Self.RefBookGNG" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookGNG">
+              <PropertyRef Name="idRefBookGNG" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookGNG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookLand">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookLandFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookLand1">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookLandTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookOwner">
+          <End Role="RefBookOwner" Type="Self.RefBookOwner" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookOwner">
+              <PropertyRef Name="idRefBookOwner" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookStations">
+          <End Role="RefBookStations" Type="Self.RefBookStations" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookStations">
+              <PropertyRef Name="idRefBookStation" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="RefBookStationFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookStations1">
+          <End Role="RefBookStations" Type="Self.RefBookStations" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookStations">
+              <PropertyRef Name="idRefBookStation" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="RefBookStationTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_SpecialCondition">
+          <End Role="SpecialCondition" Type="Self.SpecialCondition" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialCondition">
+              <PropertyRef Name="idSpecialCondition" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idSpecialCondition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_TranshipmentMethod">
+          <End Role="TranshipmentMethod" Type="Self.TranshipmentMethod" Multiplicity="1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TranshipmentMethod">
+              <PropertyRef Name="idTranshipmentMethod" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idTranshipmentMethod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BTLCModelStoreContainer">
+          <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DateMonth" EntityType="Self.DateMonth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartuePoint" EntityType="Self.DepartuePoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartuePort" EntityType="Self.DepartuePort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DestinationPoint" EntityType="Self.DestinationPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DestinationPort" EntityType="Self.DestinationPort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TranshipmentMethod" EntityType="Self.TranshipmentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransportationRequest" EntityType="Self.TransportationRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefBookCars" EntityType="Self.RefBookCars" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookClient" EntityType="Self.RefBookClient" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookETSNG" EntityType="Self.RefBookETSNG" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookGNG" EntityType="Self.RefBookGNG" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookLand" EntityType="Self.RefBookLand" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookOwner" EntityType="Self.RefBookOwner" Schema="Expeditor" store:Type="Tables" />
+          <EntitySet Name="RefBookStations" EntityType="Self.RefBookStations" Schema="Expeditor" store:Type="Tables" />
+          <AssociationSet Name="FK__RefBookCl__idRef__4258AA70" Association="Self.FK__RefBookCl__idRef__4258AA70">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RefBookCl__idRef__7ED7A8CB" Association="Self.FK__RefBookCl__idRef__7ED7A8CB">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_CargoUnitNumber" Association="Self.FK_TransportationRequest_CargoUnitNumber">
+            <End Role="CargoUnitNumber" EntitySet="CargoUnitNumber" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DateMonth" Association="Self.FK_TransportationRequest_DateMonth">
+            <End Role="DateMonth" EntitySet="DateMonth" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DepartuePoint" Association="Self.FK_TransportationRequest_DepartuePoint">
+            <End Role="DepartuePoint" EntitySet="DepartuePoint" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DepartuePort" Association="Self.FK_TransportationRequest_DepartuePort">
+            <End Role="DepartuePort" EntitySet="DepartuePort" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DestinationPoint" Association="Self.FK_TransportationRequest_DestinationPoint">
+            <End Role="DestinationPoint" EntitySet="DestinationPoint" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DestinationPort" Association="Self.FK_TransportationRequest_DestinationPort">
+            <End Role="DestinationPort" EntitySet="DestinationPort" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RailwayDispatch" Association="Self.FK_TransportationRequest_RailwayDispatch">
+            <End Role="RailwayDispatch" EntitySet="RailwayDispatch" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookCars" Association="Self.FK_TransportationRequest_RefBookCars">
+            <End Role="RefBookCars" EntitySet="RefBookCars" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookClient" Association="Self.FK_TransportationRequest_RefBookClient">
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookClient1" Association="Self.FK_TransportationRequest_RefBookClient1">
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookETSNG" Association="Self.FK_TransportationRequest_RefBookETSNG">
+            <End Role="RefBookETSNG" EntitySet="RefBookETSNG" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookGNG" Association="Self.FK_TransportationRequest_RefBookGNG">
+            <End Role="RefBookGNG" EntitySet="RefBookGNG" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookLand" Association="Self.FK_TransportationRequest_RefBookLand">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookLand1" Association="Self.FK_TransportationRequest_RefBookLand1">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookOwner" Association="Self.FK_TransportationRequest_RefBookOwner">
+            <End Role="RefBookOwner" EntitySet="RefBookOwner" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookStations" Association="Self.FK_TransportationRequest_RefBookStations">
+            <End Role="RefBookStations" EntitySet="RefBookStations" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookStations1" Association="Self.FK_TransportationRequest_RefBookStations1">
+            <End Role="RefBookStations" EntitySet="RefBookStations" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_SpecialCondition" Association="Self.FK_TransportationRequest_SpecialCondition">
+            <End Role="SpecialCondition" EntitySet="SpecialCondition" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_TranshipmentMethod" Association="Self.FK_TransportationRequest_TranshipmentMethod">
+            <End Role="TranshipmentMethod" EntitySet="TranshipmentMethod" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BTLCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CargoUnitNumber">
+          <Key>
+            <PropertyRef Name="idCargoUnitNumber" />
+          </Key>
+          <Property Name="idCargoUnitNumber" Type="Guid" Nullable="false" />
+          <Property Name="CargoUnitNumber1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_CargoUnitNumber" FromRole="CargoUnitNumber" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="DateMonth">
+          <Key>
+            <PropertyRef Name="idDateMonth" />
+          </Key>
+          <Property Name="idDateMonth" Type="Guid" Nullable="false" />
+          <Property Name="DateMonth1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DateMonth" FromRole="DateMonth" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="DepartuePoint">
+          <Key>
+            <PropertyRef Name="idDepartuePoint" />
+          </Key>
+          <Property Name="idDepartuePoint" Type="Guid" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DepartuePoint" FromRole="DepartuePoint" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="DepartuePort">
+          <Key>
+            <PropertyRef Name="idDepartuePort" />
+          </Key>
+          <Property Name="idDepartuePort" Type="Guid" Nullable="false" />
+          <Property Name="PortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest1" Relationship="BTLCModel.FK_TransportationRequest_DepartuePort" FromRole="DepartuePort" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="DestinationPoint">
+          <Key>
+            <PropertyRef Name="idDestinationPoint" />
+          </Key>
+          <Property Name="idDestinationPoint" Type="Guid" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DestinationPoint" FromRole="DestinationPoint" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="DestinationPort">
+          <Key>
+            <PropertyRef Name="idDestinationPort" />
+          </Key>
+          <Property Name="idDestinationPort" Type="Guid" Nullable="false" />
+          <Property Name="PortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DestinationPort" FromRole="DestinationPort" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="RailwayDispatch">
+          <Key>
+            <PropertyRef Name="idRailwayDispatch" />
+          </Key>
+          <Property Name="idRailwayDispatch" Type="Guid" Nullable="false" />
+          <Property Name="DispatchType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RailwayDispatch" FromRole="RailwayDispatch" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="SpecialCondition">
+          <Key>
+            <PropertyRef Name="idSpecialCondition" />
+          </Key>
+          <Property Name="idSpecialCondition" Type="Guid" Nullable="false" />
+          <Property Name="SpecialCondition1" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_SpecialCondition" FromRole="SpecialCondition" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="TransportationRequest">
+          <Key>
+            <PropertyRef Name="idTransportationRequest" />
+          </Key>
+          <Property Name="idTransportationRequest" Type="Guid" Nullable="false" />
+          <Property Name="idDateMonth" Type="Guid" />
+          <Property Name="idRefBookLandFrom" Type="Guid" />
+          <Property Name="idRefBookLandTo" Type="Guid" />
+          <Property Name="idRefBookETSNG" Type="Guid" />
+          <Property Name="idRefBookGNG" Type="Guid" />
+          <Property Name="DeliveryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefBookStationFrom" Type="Guid" />
+          <Property Name="RefBookStationTo" Type="Guid" />
+          <Property Name="idDepartuePoint" Type="Guid" />
+          <Property Name="idDestinationPoint" Type="Guid" />
+          <Property Name="idDepartuePort" Type="Guid" />
+          <Property Name="idDestinationPort" Type="Guid" />
+          <Property Name="Shipper" Type="Guid" />
+          <Property Name="Consignee" Type="Guid" />
+          <Property Name="idRailwayDispatch" Type="Guid" />
+          <Property Name="idRefBookCars" Type="Guid" />
+          <Property Name="idRefBookOwner" Type="Guid" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="CargoUnitAmmount" Type="Int32" />
+          <Property Name="idCargoUnitNumber" Type="Guid" />
+          <Property Name="idSpecialCondition" Type="Guid" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CargoUnitNumber" Relationship="Self.FK_TransportationRequest_CargoUnitNumber" FromRole="TransportationRequest" ToRole="CargoUnitNumber" />
+          <NavigationProperty Name="DateMonth" Relationship="Self.FK_TransportationRequest_DateMonth" FromRole="TransportationRequest" ToRole="DateMonth" />
+          <NavigationProperty Name="DepartuePoint" Relationship="Self.FK_TransportationRequest_DepartuePoint" FromRole="TransportationRequest" ToRole="DepartuePoint" />
+          <NavigationProperty Name="DestinationPoint" Relationship="Self.FK_TransportationRequest_DestinationPoint" FromRole="TransportationRequest" ToRole="DestinationPoint" />
+          <NavigationProperty Name="DestinationPort" Relationship="Self.FK_TransportationRequest_DestinationPort" FromRole="TransportationRequest" ToRole="DestinationPort" />
+          <NavigationProperty Name="RailwayDispatch" Relationship="Self.FK_TransportationRequest_RailwayDispatch" FromRole="TransportationRequest" ToRole="RailwayDispatch" />
+          <NavigationProperty Name="SpecialCondition" Relationship="Self.FK_TransportationRequest_SpecialCondition" FromRole="TransportationRequest" ToRole="SpecialCondition" />
+          <NavigationProperty Name="RefBookCars" Relationship="Self.FK_TransportationRequest_RefBookCars" FromRole="TransportationRequest" ToRole="RefBookCars" />
+          <NavigationProperty Name="RefBookClient" Relationship="Self.FK_TransportationRequest_RefBookClient" FromRole="TransportationRequest" ToRole="RefBookClient" />
+          <NavigationProperty Name="RefBookClient1" Relationship="Self.FK_TransportationRequest_RefBookClient1" FromRole="TransportationRequest" ToRole="RefBookClient" />
+          <NavigationProperty Name="RefBookETSNG" Relationship="Self.FK_TransportationRequest_RefBookETSNG" FromRole="TransportationRequest" ToRole="RefBookETSNG" />
+          <NavigationProperty Name="RefBookGNG" Relationship="Self.FK_TransportationRequest_RefBookGNG" FromRole="TransportationRequest" ToRole="RefBookGNG" />
+          <NavigationProperty Name="RefBookLand" Relationship="Self.FK_TransportationRequest_RefBookLand" FromRole="TransportationRequest" ToRole="RefBookLand" />
+          <NavigationProperty Name="RefBookLand1" Relationship="Self.FK_TransportationRequest_RefBookLand1" FromRole="TransportationRequest" ToRole="RefBookLand" />
+          <NavigationProperty Name="RefBookOwner" Relationship="Self.FK_TransportationRequest_RefBookOwner" FromRole="TransportationRequest" ToRole="RefBookOwner" />
+          <NavigationProperty Name="RefBookStations" Relationship="Self.FK_TransportationRequest_RefBookStations" FromRole="TransportationRequest" ToRole="RefBookStations" />
+          <NavigationProperty Name="RefBookStations1" Relationship="Self.FK_TransportationRequest_RefBookStations1" FromRole="TransportationRequest" ToRole="RefBookStations" />
+          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="TranshipmentMethod" Relationship="BTLCModel.FK_TransportationRequest_TranshipmentMethod" FromRole="TransportationRequest" ToRole="TranshipmentMethod" />
+          <NavigationProperty Name="DepartuePort1" Relationship="BTLCModel.FK_TransportationRequest_DepartuePort" FromRole="TransportationRequest" ToRole="DepartuePort" />
+        </EntityType>
+        <EntityType Name="RefBookCars">
+          <Key>
+            <PropertyRef Name="idRefBookCars" />
+          </Key>
+          <Property Name="idRefBookCars" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CarId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Volume" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Axis" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TareW" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CarType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Gross" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookCars" FromRole="RefBookCars" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="RefBookClient">
+          <Key>
+            <PropertyRef Name="idRefBookClient" />
+          </Key>
+          <Property Name="idRefBookClient" Type="Guid" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UNN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idRefBookLand" Type="Guid" />
+          <Property Name="AddressLegal" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorPositionIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorSurnameIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookerPositionIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookerSurnameIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorSurnameRP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorPositionRP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BankCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookClient" FromRole="RefBookClient" ToRole="TransportationRequest" />
+          <NavigationProperty Name="TransportationRequest1" Relationship="Self.FK_TransportationRequest_RefBookClient1" FromRole="RefBookClient" ToRole="TransportationRequest" />
+          <NavigationProperty Name="RefBookLand" Relationship="Self.FK__RefBookCl__idRef__4258AA70" FromRole="RefBookClient" ToRole="RefBookLand" />
+          <NavigationProperty Name="RefBookLand1" Relationship="Self.FK__RefBookCl__idRef__7ED7A8CB" FromRole="RefBookClient" ToRole="RefBookLand" />
+        </EntityType>
+        <EntityType Name="RefBookETSNG">
+          <Key>
+            <PropertyRef Name="idRefBookETSNG" />
+          </Key>
+          <Property Name="idRefBookETSNG" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClassN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="MinNew" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="KodGNG8" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookETSNG" FromRole="RefBookETSNG" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="RefBookGNG">
+          <Key>
+            <PropertyRef Name="idRefBookGNG" />
+          </Key>
+          <Property Name="idRefBookGNG" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClassETT" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="KodETSNG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ETnPos" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookGNG" FromRole="RefBookGNG" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="RefBookLand">
+          <Key>
+            <PropertyRef Name="idRefBookLand" />
+          </Key>
+          <Property Name="idRefBookLand" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LandId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Land_Int" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Land_OSJD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookLand" FromRole="RefBookLand" ToRole="TransportationRequest" />
+          <NavigationProperty Name="TransportationRequest1" Relationship="Self.FK_TransportationRequest_RefBookLand1" FromRole="RefBookLand" ToRole="TransportationRequest" />
+          <NavigationProperty Name="RefBookClient" Relationship="Self.FK__RefBookCl__idRef__4258AA70" FromRole="RefBookLand" ToRole="RefBookClient" />
+          <NavigationProperty Name="RefBookClient1" Relationship="Self.FK__RefBookCl__idRef__7ED7A8CB" FromRole="RefBookLand" ToRole="RefBookClient" />
+        </EntityType>
+        <EntityType Name="RefBookOwner">
+          <Key>
+            <PropertyRef Name="idRefBookOwner" />
+          </Key>
+          <Property Name="idRefBookOwner" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OwnerId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerDsc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookOwner" FromRole="RefBookOwner" ToRole="TransportationRequest" />
+        </EntityType>
+        <EntityType Name="RefBookStations">
+          <Key>
+            <PropertyRef Name="idRefBookStation" />
+          </Key>
+          <Property Name="idRefBookStation" Type="Guid" Nullable="false" />
+          <Property Name="DateDownload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NewCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewParaT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VrParAdd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VrParDel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Road" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Land" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="RoadID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="LandID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="RoadAbbr" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LandAbbr" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PPLand" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="RegName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OblSity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParagTxt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookStations" FromRole="RefBookStations" ToRole="TransportationRequest" />
+          <NavigationProperty Name="TransportationRequest1" Relationship="Self.FK_TransportationRequest_RefBookStations1" FromRole="RefBookStations" ToRole="TransportationRequest" />
+        </EntityType>
+        <Association Name="FK_TransportationRequest_CargoUnitNumber">
+          <End Role="CargoUnitNumber" Type="Self.CargoUnitNumber" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoUnitNumber">
+              <PropertyRef Name="idCargoUnitNumber" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idCargoUnitNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DateMonth">
+          <End Role="DateMonth" Type="Self.DateMonth" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DateMonth">
+              <PropertyRef Name="idDateMonth" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDateMonth" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DepartuePoint">
+          <End Role="DepartuePoint" Type="Self.DepartuePoint" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartuePoint">
+              <PropertyRef Name="idDepartuePoint" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDepartuePoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DestinationPoint">
+          <End Role="DestinationPoint" Type="Self.DestinationPoint" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DestinationPoint">
+              <PropertyRef Name="idDestinationPoint" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDestinationPoint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DestinationPort">
+          <End Role="DestinationPort" Type="Self.DestinationPort" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DestinationPort">
+              <PropertyRef Name="idDestinationPort" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDestinationPort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RailwayDispatch">
+          <End Role="RailwayDispatch" Type="Self.RailwayDispatch" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RailwayDispatch">
+              <PropertyRef Name="idRailwayDispatch" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRailwayDispatch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_SpecialCondition">
+          <End Role="SpecialCondition" Type="Self.SpecialCondition" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialCondition">
+              <PropertyRef Name="idSpecialCondition" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idSpecialCondition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookCars">
+          <End Role="RefBookCars" Type="Self.RefBookCars" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookCars">
+              <PropertyRef Name="idRefBookCars" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookClient">
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookClient">
+              <PropertyRef Name="idRefBookClient" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="Shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookClient1">
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookClient">
+              <PropertyRef Name="idRefBookClient" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="Consignee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookETSNG">
+          <End Role="RefBookETSNG" Type="Self.RefBookETSNG" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookETSNG">
+              <PropertyRef Name="idRefBookETSNG" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookETSNG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookGNG">
+          <End Role="RefBookGNG" Type="Self.RefBookGNG" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookGNG">
+              <PropertyRef Name="idRefBookGNG" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookGNG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookLand">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookLandFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookLand1">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookLandTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookOwner">
+          <End Role="RefBookOwner" Type="Self.RefBookOwner" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookOwner">
+              <PropertyRef Name="idRefBookOwner" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idRefBookOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookStations">
+          <End Role="RefBookStations" Type="Self.RefBookStations" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookStations">
+              <PropertyRef Name="idRefBookStation" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="RefBookStationFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_RefBookStations1">
+          <End Role="RefBookStations" Type="Self.RefBookStations" Multiplicity="0..1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookStations">
+              <PropertyRef Name="idRefBookStation" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="RefBookStationTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RefBookCl__idRef__4258AA70">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="RefBookClient">
+              <PropertyRef Name="idRefBookLand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RefBookCl__idRef__7ED7A8CB">
+          <End Role="RefBookLand" Type="Self.RefBookLand" Multiplicity="0..1" />
+          <End Role="RefBookClient" Type="Self.RefBookClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBookLand">
+              <PropertyRef Name="idRefBookLand" />
+            </Principal>
+            <Dependent Role="RefBookClient">
+              <PropertyRef Name="idRefBookLand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BTLCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" />
+          <EntitySet Name="DateMonth" EntityType="Self.DateMonth" />
+          <EntitySet Name="DepartuePoint" EntityType="Self.DepartuePoint" />
+          <EntitySet Name="DepartuePort" EntityType="Self.DepartuePort" />
+          <EntitySet Name="DestinationPoint" EntityType="Self.DestinationPoint" />
+          <EntitySet Name="DestinationPort" EntityType="Self.DestinationPort" />
+          <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" />
+          <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" />
+          <EntitySet Name="TransportationRequest" EntityType="Self.TransportationRequest" />
+          <EntitySet Name="RefBookCars" EntityType="Self.RefBookCars" />
+          <EntitySet Name="RefBookClient" EntityType="Self.RefBookClient" />
+          <EntitySet Name="RefBookETSNG" EntityType="Self.RefBookETSNG" />
+          <EntitySet Name="RefBookGNG" EntityType="Self.RefBookGNG" />
+          <EntitySet Name="RefBookLand" EntityType="Self.RefBookLand" />
+          <EntitySet Name="RefBookOwner" EntityType="Self.RefBookOwner" />
+          <EntitySet Name="RefBookStations" EntityType="Self.RefBookStations" />
+          <AssociationSet Name="FK_TransportationRequest_CargoUnitNumber" Association="Self.FK_TransportationRequest_CargoUnitNumber">
+            <End Role="CargoUnitNumber" EntitySet="CargoUnitNumber" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DateMonth" Association="Self.FK_TransportationRequest_DateMonth">
+            <End Role="DateMonth" EntitySet="DateMonth" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DepartuePoint" Association="Self.FK_TransportationRequest_DepartuePoint">
+            <End Role="DepartuePoint" EntitySet="DepartuePoint" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DestinationPoint" Association="Self.FK_TransportationRequest_DestinationPoint">
+            <End Role="DestinationPoint" EntitySet="DestinationPoint" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DestinationPort" Association="Self.FK_TransportationRequest_DestinationPort">
+            <End Role="DestinationPort" EntitySet="DestinationPort" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RailwayDispatch" Association="Self.FK_TransportationRequest_RailwayDispatch">
+            <End Role="RailwayDispatch" EntitySet="RailwayDispatch" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_SpecialCondition" Association="Self.FK_TransportationRequest_SpecialCondition">
+            <End Role="SpecialCondition" EntitySet="SpecialCondition" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookCars" Association="Self.FK_TransportationRequest_RefBookCars">
+            <End Role="RefBookCars" EntitySet="RefBookCars" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookClient" Association="Self.FK_TransportationRequest_RefBookClient">
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookClient1" Association="Self.FK_TransportationRequest_RefBookClient1">
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookETSNG" Association="Self.FK_TransportationRequest_RefBookETSNG">
+            <End Role="RefBookETSNG" EntitySet="RefBookETSNG" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookGNG" Association="Self.FK_TransportationRequest_RefBookGNG">
+            <End Role="RefBookGNG" EntitySet="RefBookGNG" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookLand" Association="Self.FK_TransportationRequest_RefBookLand">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookLand1" Association="Self.FK_TransportationRequest_RefBookLand1">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookOwner" Association="Self.FK_TransportationRequest_RefBookOwner">
+            <End Role="RefBookOwner" EntitySet="RefBookOwner" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookStations" Association="Self.FK_TransportationRequest_RefBookStations">
+            <End Role="RefBookStations" EntitySet="RefBookStations" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_RefBookStations1" Association="Self.FK_TransportationRequest_RefBookStations1">
+            <End Role="RefBookStations" EntitySet="RefBookStations" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RefBookCl__idRef__4258AA70" Association="Self.FK__RefBookCl__idRef__4258AA70">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RefBookCl__idRef__7ED7A8CB" Association="Self.FK__RefBookCl__idRef__7ED7A8CB">
+            <End Role="RefBookLand" EntitySet="RefBookLand" />
+            <End Role="RefBookClient" EntitySet="RefBookClient" />
+          </AssociationSet>
+          <EntitySet Name="TranshipmentMethod" EntityType="BTLCModel.TranshipmentMethod" />
+          <AssociationSet Name="FK_TransportationRequest_TranshipmentMethod" Association="BTLCModel.FK_TransportationRequest_TranshipmentMethod">
+            <End Role="TranshipmentMethod" EntitySet="TranshipmentMethod" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_DepartuePort" Association="BTLCModel.FK_TransportationRequest_DepartuePort">
+            <End Role="DepartuePort" EntitySet="DepartuePort" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TranshipmentMethod">
+          <Key>
+            <PropertyRef Name="idTranshipmentMethod" />
+          </Key>
+          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
+          <Property Name="TranshipmentMethod1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransportationRequest" Relationship="BTLCModel.FK_TransportationRequest_TranshipmentMethod" FromRole="TranshipmentMethod" ToRole="TransportationRequest" />
+        </EntityType>
+        <Association Name="FK_TransportationRequest_TranshipmentMethod">
+          <End Type="BTLCModel.TranshipmentMethod" Role="TranshipmentMethod" Multiplicity="1" />
+          <End Type="BTLCModel.TransportationRequest" Role="TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TranshipmentMethod">
+              <PropertyRef Name="idTranshipmentMethod" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idTranshipmentMethod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_DepartuePort">
+          <End Type="BTLCModel.DepartuePort" Role="DepartuePort" Multiplicity="0..1" />
+          <End Type="BTLCModel.TransportationRequest" Role="TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartuePort">
+              <PropertyRef Name="idDepartuePort" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idDepartuePort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BTLCModelStoreContainer" CdmEntityContainer="BTLCEntities">
+          <EntitySetMapping Name="CargoUnitNumber">
+            <EntityTypeMapping TypeName="BTLCModel.CargoUnitNumber">
+              <MappingFragment StoreEntitySet="CargoUnitNumber">
+                <ScalarProperty Name="idCargoUnitNumber" ColumnName="idCargoUnitNumber" />
+                <ScalarProperty Name="CargoUnitNumber1" ColumnName="CargoUnitNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DateMonth">
+            <EntityTypeMapping TypeName="BTLCModel.DateMonth">
+              <MappingFragment StoreEntitySet="DateMonth">
+                <ScalarProperty Name="idDateMonth" ColumnName="idDateMonth" />
+                <ScalarProperty Name="DateMonth1" ColumnName="DateMonth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartuePoint">
+            <EntityTypeMapping TypeName="BTLCModel.DepartuePoint">
+              <MappingFragment StoreEntitySet="DepartuePoint">
+                <ScalarProperty Name="idDepartuePoint" ColumnName="idDepartuePoint" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartuePort">
+            <EntityTypeMapping TypeName="BTLCModel.DepartuePort">
+              <MappingFragment StoreEntitySet="DepartuePort">
+                <ScalarProperty Name="idDepartuePort" ColumnName="idDepartuePort" />
+                <ScalarProperty Name="PortName" ColumnName="PortName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DestinationPoint">
+            <EntityTypeMapping TypeName="BTLCModel.DestinationPoint">
+              <MappingFragment StoreEntitySet="DestinationPoint">
+                <ScalarProperty Name="idDestinationPoint" ColumnName="idDestinationPoint" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DestinationPort">
+            <EntityTypeMapping TypeName="BTLCModel.DestinationPort">
+              <MappingFragment StoreEntitySet="DestinationPort">
+                <ScalarProperty Name="idDestinationPort" ColumnName="idDestinationPort" />
+                <ScalarProperty Name="PortName" ColumnName="PortName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RailwayDispatch">
+            <EntityTypeMapping TypeName="BTLCModel.RailwayDispatch">
+              <MappingFragment StoreEntitySet="RailwayDispatch">
+                <ScalarProperty Name="idRailwayDispatch" ColumnName="idRailwayDispatch" />
+                <ScalarProperty Name="DispatchType" ColumnName="DispatchType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialCondition">
+            <EntityTypeMapping TypeName="BTLCModel.SpecialCondition">
+              <MappingFragment StoreEntitySet="SpecialCondition">
+                <ScalarProperty Name="idSpecialCondition" ColumnName="idSpecialCondition" />
+                <ScalarProperty Name="SpecialCondition1" ColumnName="SpecialCondition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransportationRequest">
+            <EntityTypeMapping TypeName="BTLCModel.TransportationRequest">
+              <MappingFragment StoreEntitySet="TransportationRequest">
+                <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
+                <ScalarProperty Name="idTransportationRequest" ColumnName="idTransportationRequest" />
+                <ScalarProperty Name="idDateMonth" ColumnName="idDateMonth" />
+                <ScalarProperty Name="idRefBookLandFrom" ColumnName="idRefBookLandFrom" />
+                <ScalarProperty Name="idRefBookLandTo" ColumnName="idRefBookLandTo" />
+                <ScalarProperty Name="idRefBookETSNG" ColumnName="idRefBookETSNG" />
+                <ScalarProperty Name="idRefBookGNG" ColumnName="idRefBookGNG" />
+                <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+                <ScalarProperty Name="RefBookStationFrom" ColumnName="RefBookStationFrom" />
+                <ScalarProperty Name="RefBookStationTo" ColumnName="RefBookStationTo" />
+                <ScalarProperty Name="idDepartuePoint" ColumnName="idDepartuePoint" />
+                <ScalarProperty Name="idDestinationPoint" ColumnName="idDestinationPoint" />
+                <ScalarProperty Name="idDepartuePort" ColumnName="idDepartuePort" />
+                <ScalarProperty Name="idDestinationPort" ColumnName="idDestinationPort" />
+                <ScalarProperty Name="Shipper" ColumnName="Shipper" />
+                <ScalarProperty Name="Consignee" ColumnName="Consignee" />
+                <ScalarProperty Name="idRailwayDispatch" ColumnName="idRailwayDispatch" />
+                <ScalarProperty Name="idRefBookCars" ColumnName="idRefBookCars" />
+                <ScalarProperty Name="idRefBookOwner" ColumnName="idRefBookOwner" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="CargoUnitAmmount" ColumnName="CargoUnitAmmount" />
+                <ScalarProperty Name="idCargoUnitNumber" ColumnName="idCargoUnitNumber" />
+                <ScalarProperty Name="idSpecialCondition" ColumnName="idSpecialCondition" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookCars">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookCars">
+              <MappingFragment StoreEntitySet="RefBookCars">
+                <ScalarProperty Name="idRefBookCars" ColumnName="idRefBookCars" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="GP" ColumnName="GP" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Axis" ColumnName="Axis" />
+                <ScalarProperty Name="TareW" ColumnName="TareW" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="Gross" ColumnName="Gross" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookClient">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookClient">
+              <MappingFragment StoreEntitySet="RefBookClient">
+                <ScalarProperty Name="idRefBookClient" ColumnName="idRefBookClient" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UNN" ColumnName="UNN" />
+                <ScalarProperty Name="idRefBookLand" ColumnName="idRefBookLand" />
+                <ScalarProperty Name="AddressLegal" ColumnName="AddressLegal" />
+                <ScalarProperty Name="DirectorPositionIP" ColumnName="DirectorPositionIP" />
+                <ScalarProperty Name="DirectorSurnameIP" ColumnName="DirectorSurnameIP" />
+                <ScalarProperty Name="BookerPositionIP" ColumnName="BookerPositionIP" />
+                <ScalarProperty Name="BookerSurnameIP" ColumnName="BookerSurnameIP" />
+                <ScalarProperty Name="DirectorSurnameRP" ColumnName="DirectorSurnameRP" />
+                <ScalarProperty Name="DirectorPositionRP" ColumnName="DirectorPositionRP" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankCity" ColumnName="BankCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookETSNG">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookETSNG">
+              <MappingFragment StoreEntitySet="RefBookETSNG">
+                <ScalarProperty Name="idRefBookETSNG" ColumnName="idRefBookETSNG" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassN" ColumnName="ClassN" />
+                <ScalarProperty Name="MinNew" ColumnName="MinNew" />
+                <ScalarProperty Name="KodGNG8" ColumnName="KodGNG8" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookGNG">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookGNG">
+              <MappingFragment StoreEntitySet="RefBookGNG">
+                <ScalarProperty Name="idRefBookGNG" ColumnName="idRefBookGNG" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassETT" ColumnName="ClassETT" />
+                <ScalarProperty Name="KodETSNG" ColumnName="KodETSNG" />
+                <ScalarProperty Name="ETnPos" ColumnName="ETnPos" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookLand">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookLand">
+              <MappingFragment StoreEntitySet="RefBookLand">
+                <ScalarProperty Name="idRefBookLand" ColumnName="idRefBookLand" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="LandId" ColumnName="LandId" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="RName" ColumnName="RName" />
+                <ScalarProperty Name="Land_Int" ColumnName="Land_Int" />
+                <ScalarProperty Name="Land_OSJD" ColumnName="Land_OSJD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookOwner">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookOwner">
+              <MappingFragment StoreEntitySet="RefBookOwner">
+                <ScalarProperty Name="idRefBookOwner" ColumnName="idRefBookOwner" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="OwnerDsc" ColumnName="OwnerDsc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefBookStations">
+            <EntityTypeMapping TypeName="BTLCModel.RefBookStations">
+              <MappingFragment StoreEntitySet="RefBookStations">
+                <ScalarProperty Name="idRefBookStation" ColumnName="idRefBookStation" />
+                <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NewName" ColumnName="NewName" />
+                <ScalarProperty Name="NewParaT" ColumnName="NewParaT" />
+                <ScalarProperty Name="VrParAdd" ColumnName="VrParAdd" />
+                <ScalarProperty Name="VrParDel" ColumnName="VrParDel" />
+                <ScalarProperty Name="Road" ColumnName="Road" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="LinkCode" ColumnName="LinkCode" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="RoadID" ColumnName="RoadID" />
+                <ScalarProperty Name="LandID" ColumnName="LandID" />
+                <ScalarProperty Name="RoadAbbr" ColumnName="RoadAbbr" />
+                <ScalarProperty Name="LandAbbr" ColumnName="LandAbbr" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="DP" ColumnName="DP" />
+                <ScalarProperty Name="PPLand" ColumnName="PPLand" />
+                <ScalarProperty Name="RegName" ColumnName="RegName" />
+                <ScalarProperty Name="OblSity" ColumnName="OblSity" />
+                <ScalarProperty Name="ParagTxt" ColumnName="ParagTxt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TranshipmentMethod">
+            <EntityTypeMapping TypeName="BTLCModel.TranshipmentMethod">
+              <MappingFragment StoreEntitySet="TranshipmentMethod">
+                <ScalarProperty Name="TranshipmentMethod1" ColumnName="TranshipmentMethod" />
+                <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b834398f676a492080777f9119dd6d76" Name="Diagram1" ShowGrid="false">
+        <EntityTypeShape EntityType="BTLCModel.CargoUnitNumber" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.DateMonth" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.DepartuePoint" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.DepartuePort" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.DestinationPoint" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.DestinationPort" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RailwayDispatch" Width="1.5" PointX="3" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.SpecialCondition" Width="1.5" PointX="3" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.TransportationRequest" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookCars" Width="1.5" PointX="3" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookClient" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookETSNG" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookGNG" Width="1.5" PointX="3" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookLand" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookOwner" Width="1.5" PointX="3" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTLCModel.RefBookStations" Width="1.5" PointX="3" PointY="51.125" IsExpanded="true" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_CargoUnitNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_DateMonth" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_DepartuePoint" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_DestinationPoint" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_DestinationPort" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RailwayDispatch" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_SpecialCondition" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookCars" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookClient" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookClient1" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookETSNG" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookGNG" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookLand" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookLand1" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookStations" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_RefBookStations1" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK__RefBookCl__idRef__4258AA70" ManuallyRouted="false" />
+        <AssociationConnector Association="BTLCModel.FK__RefBookCl__idRef__7ED7A8CB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BTLCModel.TranshipmentMethod" Width="1.5" PointX="1.75" PointY="5.125" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_TranshipmentMethod" />
+        <AssociationConnector Association="BTLCModel.FK_TransportationRequest_DepartuePort" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

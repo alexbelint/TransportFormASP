@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<TransportFormASP.Models.RefBookStations>
+@using PagedList.Mvc
+<br />
+<p>
+    @Html.ActionLink("Создать новую запись", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm())
+{
+    <div class="col-lg-4">
+        <div class="input-group">
+            <input type="search" class="form-control" id="searchString" name="searchString" placeholder="Код или название станции" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Поиск</button>
+            </span>
+        </div>
+        <br />
+    </div>
+}
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].NewCode).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].NewName).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Road).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Land).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].RoadAbbr).ToHtmlString(), "Index")
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Road)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Land)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoadAbbr)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Действия
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.idRefBookStation })">Редактировать</a></li>
+                        <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.idRefBookStation })">Подробнее</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Delete", new { id = item.idRefBookStation })">Удалить</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

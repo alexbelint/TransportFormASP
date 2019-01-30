@@ -1,0 +1,202 @@
+﻿@model TransportFormASP.Models.RefBookStations
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RefBookStations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDownload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDownload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewParaT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewParaT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrParAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrParAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrParDel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrParDel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Road)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Road)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Land)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Land)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoadID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoadID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LandID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LandID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoadAbbr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoadAbbr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LandAbbr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LandAbbr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPLand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPLand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OblSity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OblSity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParagTxt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParagTxt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idRefBookStation }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
