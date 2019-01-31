@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutoTransportationRequestsController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
+    <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\TransportationRequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,7 +183,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\RailwayDispatch.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -386,6 +386,7 @@
     <Content Include="Views\AutoTransportationRequests\Details.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Edit.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Index.cshtml" />
+    <Content Include="Views\Select2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,9 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using TransportFormASP.Models;
 using System.Linq.Dynamic;
-using Filter = TransportFormASP.Models.Filter;
+//using TransportFormASP.Models;
 using System.Web.UI.WebControls;
-using Table = TransportFormASP.Models.Table;
+//using Table = TransportFormASP.Models.Table;
 
 namespace TransportFormASP.Controllers
 {
@@ -58,10 +58,25 @@ namespace TransportFormASP.Controllers
             {
                 CountryList = db.RefBookLand.Where(x => x.LName.Contains(searchTerm)).ToList();
             }
-            var modifiedData = db.RefBookLand.Select(x => new
+            var modifiedData = CountryList.Select(x => new
             {
                 id = x.idRefBookLand,
                 text = x.LName
+            });
+            return Json(modifiedData, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetGNGList(string searchTerm)
+        {
+            var GNGList = db.RefBookGNG.ToList();
+            if (searchTerm != null)
+            {
+                GNGList = db.RefBookGNG.Where(x => x.Name.Contains(searchTerm) 
+                                               /* || x.Kod.Contains(searchTerm)*/).ToList();
+            }
+            var modifiedData = GNGList.Select(x => new
+            {
+                id = x.idRefBookGNG,
+                text = x.Name
             });
             return Json(modifiedData, JsonRequestBehavior.AllowGet);
         }
@@ -86,7 +101,7 @@ namespace TransportFormASP.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
-        public ActionResult Create([Bind(Include = "idTransportationRequest,idRefBookLandFrom,idRefBookLandTo,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult Create([Bind(Include = "idTransportationRequest,idRefBookLandFrom,idRefBookLandTo,idTranshipmentMethod,idRefBookGNG")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {
