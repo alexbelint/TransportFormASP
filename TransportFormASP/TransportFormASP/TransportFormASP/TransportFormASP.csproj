@@ -360,6 +360,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\selecthandler.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -387,6 +388,7 @@
     <Content Include="Views\AutoTransportationRequests\Edit.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Index.cshtml" />
     <Content Include="Views\Select2\Index.cshtml" />
+    <Content Include="Views\Select2\show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

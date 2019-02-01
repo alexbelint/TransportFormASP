@@ -1,107 +1,107 @@
-﻿
+﻿@model TransportFormASP.Models.TransportationRequest
 @{
     ViewBag.Title = "Index";
 }
 <form method="post">
-    <div style="margin-top: 10px;">
-        <p>GNG: </p>
-        <select class="filter-select" table="0" column="Name" style="width: 300px"></select>
-    </div>
-    <div style="margin-top: 10px;">
-        <p>ETSNG: </p>
-        <select class="filter-select" table="1" column="Name" style="width: 300px"></select>
-    </div>
-    <div style="margin-top: 10px;">
-        <p>Страна отправления: </p>
-        <select class="filter-select" table="2" column="LName" style="width: 300px"></select>
-    </div>
-    <div style="margin-top: 10px;">
-        <p>Страна назначения: </p>
-        <select class="filter-select" table="2" column="LName" style="width: 300px"></select>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Период перевозки: </p>
+                <select class="form-control filter-select" table="4" column="DateMonth1"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Страна отправления: </p>
+                <select class="form-control filter-select" table="2" column="LName"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Страна назначения: </p>
+                <select class="form-control filter-select" table="2" column="LName"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>GNG: </p>
+                <select class="form-control filter-select" table="0" column="Name"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>ETSNG: </p>
+                <select class="form-control filter-select" table="1" column="Name"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Пункт отправления: </p>
+                <input class="form-control" placeholder="Введите пункт отправления" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Пункт назначения: </p>
+                <input class="form-control" placeholder="Введите пункт назначения" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
+        </div>
     </div>
 </form>
-@section Scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var selects = $('.filter-select').select2({
-                ajax: {
-                    type: 'POST',
-                    url: '/Select2/GetFilteredResult',
-                    processResults: function (data) {
-                        return {
-                            results: $.map(data, function (item) {
-                                return {
-                                    text: item.value,
-                                    id: item.value
-                                }
-                            })
-                        };
-                    },
-                    data: function (params) {
-                        var that = this;
-                        params.filters = JSON.parse(JSON.stringify(filters));
-                        var existingFilter = params.filters.find(function (filter) {
-                            return filter.column === $(that).attr('column');
-                        });
-                        if (existingFilter) {
-                            existingFilter.value = params.term;
-                            existingFilter.editing = true;
-                        } else {
-                            params.filters.push({ column: $(this).attr('column'), value: params.term, editing: true, table: $(this).attr('table') });
-                        }
-                        return { filters: params.filters };
-                    },
-                    dataType: 'json'
-                },
-                allowClear: true,
-                placeholder: 'Введите фильтр',
-                minimumInputLength: 3,
-                //delay: 1500,
-                language: {
-                    inputTooShort: function (args) {
-                        var remainingChars = args.minimum - args.input.length;
-                        var message = 'Пожалуйста введите ' + remainingChars + ' или более символов';
-                        return message;
-                    },
-                    noResults: function () {
-                        return 'Ничего не найдено';
-                    },
-                    loadingMore: function () {
-                        return 'Подгружаем результаты...';
-                    },
-                    searching: function () {
-                        return 'Ищем в базе…';
-                    }
-                }
-            });
-            var filters = [];
-            selects.on('select2:select', function (e) {
-                var that = this;
-                var existingFilter = filters.find(function (filter) {
-                    return filter.column === $(that).attr('column');
-                });
-
-                if (existingFilter) {
-                    existingFilter.value = $(this).val();
-                } else {
-                    filters.push({ column: $(this).attr('column'), value: $(this).val() });
-                    for (var i = filters.length - 1; i >= 0; --i) {
-                        if (filters[i].column == $(this).attr('column')) {
-                            filters.splice(i, 1);
-                        }
-                    }
-                }
-            });
-            selects.on('select2:unselect', function (e) {
-                for (var i = filters.length - 1; i >= 0; --i) {
-                    if (filters[i].column == $(this).attr('column')) {
-                        filters.splice(i, 1);
-                    }
-                }
-            })
-        });
-        
-    </script>
-}
+@*<script src="~/Scripts/selecthandler.js"></script>*@
+@*@using (Html.BeginForm())
+    {
+    <div class="form-horizontal">
+        @Html.LabelFor(model => model.idTranshipmentMethod, "Вид перевозки", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control " })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idDateMonth, "idDateMonth", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookLandFrom, "Страна отправления", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="2" column="LName" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookLandTo, "Страна назначения", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="2" column="LName" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookGNG, "idRefBookGNG", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="0" column="Name" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookETSNG, "idRefBookETSNG", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="margin-top: 10px;">
+                    <select class="col-md-10 filter-select" table="1" column="Name" style="width: 300px"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    }*@
 
 

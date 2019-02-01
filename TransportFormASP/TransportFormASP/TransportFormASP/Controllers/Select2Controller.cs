@@ -20,7 +20,8 @@ namespace TransportFormASP.Controllers
         GNG = 0,
         ETSNG = 1,
         Countries = 2,
-        City = 3
+        City = 3,
+        Period = 4
     }
     public class Select2Controller : Controller
 
@@ -29,6 +30,19 @@ namespace TransportFormASP.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Index([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idTranshipmentMethod,idRefBookGNG,idRefBookETSNG")] TransportationRequest transportationRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                transportationRequest.idTransportationRequest = Guid.NewGuid();
+                db.TransportationRequest.Add(transportationRequest);
+                db.SaveChanges();
+                return RedirectToAction("show");
+            }
+          
+            return View(transportationRequest);
         }
         [HttpPost]
         public ActionResult GetFilteredResult(IEnumerable<Filter> filters)
@@ -56,6 +70,9 @@ namespace TransportFormASP.Controllers
                 case Table.City:
                     results = db.RefBookStations.AsQueryable();
                     break;
+                case Table.Period:
+                    results = db.DateMonth.AsQueryable();
+                    break;
                 default:
                     results = null;
                     break;
@@ -66,8 +83,6 @@ namespace TransportFormASP.Controllers
                 {
                     results = results.Where($"{filter.Column}.Contains(@0)", filter.Value ?? "");
                 }
-                //table = null;
-               
             }
             return results;
         }
