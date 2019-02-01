@@ -5,18 +5,6 @@
     @Html.ActionLink("Создать новую запись", "Create", null, new { @class = "btn btn-primary" })
 </p>
 
-@using (Html.BeginForm())
-{
-    <div class="col-lg-4">
-        <div class="input-group">
-            <input type="search" class="form-control" id="searchString" name="searchString" placeholder="Код или название станции" />
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">Поиск</button>
-            </span>
-        </div>
-        <br />
-    </div>
-}
 <table class="table">
     <tr>
         <th>

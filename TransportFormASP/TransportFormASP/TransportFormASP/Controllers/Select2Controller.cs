@@ -8,23 +8,6 @@ using System.Linq.Dynamic;
 
 namespace TransportFormASP.Controllers
 {
-    public class Filter
-    {
-        public string Column { get; set; }
-        public string Value { get; set; }
-        public bool Editing { get; set; }
-        public Table? Table { get; set; }
-    }
-    public enum Table
-    {
-        GNG = 0,
-        ETSNG = 1,
-        Countries = 2,
-        City = 3,
-        Period = 4,
-        Client = 5,
-        SpecialCondition = 6
-    }
     public class Select2Controller : Controller
 
     {
@@ -47,38 +30,38 @@ namespace TransportFormASP.Controllers
             return View(transportationRequest);
         }
         [HttpPost]
-        public ActionResult GetFilteredResult(IEnumerable<Filter> filters)
+        public ActionResult GetFilteredResult(IEnumerable<SelectorFilter> filters)
         {
             var results = GetFilteredQueryable(filters);
             var response = results.Select($"new ({filters.Single(x => x.Editing).Column} as value)").Distinct();
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
-        private IQueryable GetFilteredQueryable(IEnumerable<Filter> filters)
+        private IQueryable GetFilteredQueryable(IEnumerable<SelectorFilter> filters)
         {        
-            Table table = filters.Single(x => x.Editing).Table.Value;
+            SelectorTable table = filters.Single(x => x.Editing).Table.Value;
             IQueryable results;
             switch (table)
             {
-                case Table.ETSNG:
+                case SelectorTable.ETSNG:
                     results = db.RefBookETSNG.AsQueryable();
                     break;
-                case Table.GNG:
+                case SelectorTable.GNG:
                     results = db.RefBookGNG.AsQueryable();
                     break;
-                case Table.Countries:
+                case SelectorTable.Countries:
                     results = db.RefBookLand.AsQueryable();
                     break;
-                case Table.City:
+                case SelectorTable.City:
                     results = db.RefBookStations.AsQueryable();
                     break;
-                case Table.Period:
+                case SelectorTable.Period:
                     results = db.DateMonth.AsQueryable();
                     break;
-                case Table.Client:
+                case SelectorTable.Client:
                     results = db.RefBookClient.AsQueryable();
                     break;
-                case Table.SpecialCondition:
+                case SelectorTable.SpecialCondition:
                     results = db.SpecialCondition.AsQueryable();
                     break;
                 default:

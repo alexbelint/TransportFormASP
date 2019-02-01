@@ -144,6 +144,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutoTransportationRequestsController.cs" />
+    <Compile Include="Controllers\RailTransportationRequestsController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\SpecialConditionsController.cs" />
@@ -184,6 +185,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SelectorFilter.cs" />
     <Compile Include="Models\RailwayDispatch.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -211,6 +213,7 @@
     <Compile Include="Models\SpecialCondition.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SelectorTable.cs" />
     <Compile Include="Models\TranshipmentMethod.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -394,6 +397,11 @@
     <Content Include="Views\SpecialConditions\Details.cshtml" />
     <Content Include="Views\SpecialConditions\Edit.cshtml" />
     <Content Include="Views\SpecialConditions\Index.cshtml" />
+    <Content Include="Views\RailTransportationRequests\Create.cshtml" />
+    <Content Include="Views\RailTransportationRequests\Delete.cshtml" />
+    <Content Include="Views\RailTransportationRequests\Details.cshtml" />
+    <Content Include="Views\RailTransportationRequests\Edit.cshtml" />
+    <Content Include="Views\RailTransportationRequests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
