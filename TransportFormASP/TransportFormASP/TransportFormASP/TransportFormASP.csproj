@@ -211,7 +211,6 @@
     <Compile Include="Models\SpecialCondition.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TranshipmentMethod.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>

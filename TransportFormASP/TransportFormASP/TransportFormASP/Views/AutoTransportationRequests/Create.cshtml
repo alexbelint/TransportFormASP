@@ -1,282 +1,135 @@
 ﻿@model TransportFormASP.Models.TransportationRequest
-
 @{
-    ViewBag.Title = "Create";
-
+    ViewBag.Title = "Создание заявки";
 }
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
+<br />
+<form method="post">
     <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.idTranshipmentMethod, "Вид перевозки", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control " })
-                @Html.ValidationMessageFor(model => model.idTranshipmentMethod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.idDateMonth, "idDateMonth", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idDateMonth, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-        @*<div class="form-group">
-                <div class="col-md-10">
-                    <select class="form-control filter-country" style="width:500px;"> </select>
-                </div>
-            </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.idRefBookLandFrom, "Страна отправления", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control filter-country" })
-                @Html.ValidationMessageFor(model => model.idRefBookLandFrom, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.idRefBookLandTo, "Страна назначения", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idRefBookLandTo", null, htmlAttributes: new { @class = "form-control filter-country" })
-                @Html.ValidationMessageFor(model => model.idRefBookLandTo, "", new { @class = "text-danger" })
+                <p>Период перевозки: </p>
+                <select class="form-control filter-select" table="4" column="DateMonth1"></select>
             </div>
         </div>
         <div class="form-group">
-            @*@Html.LabelFor(model => model.idRefBookGNG, "idRefBookGNG", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                <select class="form-control filter-gng"> </select>
-                @*@Html.DropDownList("idRefBookGNG", null, htmlAttributes: new { @class = "form-control filter-gng" })*@
-                @*@Html.ValidationMessageFor(model => model.idRefBookGNG, "", new { @class = "text-danger" })*@
+                <p>Страна отправления: </p>
+                <select class="form-control filter-select" table="2" column="LName"></select>
             </div>
         </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.idRefBookETSNG, "idRefBookETSNG", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idRefBookETSNG", null, htmlAttributes: new { @class = "form-control filter-select" })
-                    @Html.ValidationMessageFor(model => model.idRefBookETSNG, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Страна назначения: </p>
+                <select class="form-control filter-select" table="2" column="LName"></select>
             </div>
-
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DeliveryType, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DeliveryType, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DeliveryType, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>GNG: </p>
+                <select class="form-control filter-select" table="0" column="Name"></select>
             </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.idDepartuePoint, "idDepartuePoint", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idDepartuePoint", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idDepartuePoint, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>ETSNG: </p>
+                <select class="form-control filter-select" table="1" column="Name"></select>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.idDestinationPoint, "idDestinationPoint", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idDestinationPoint", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idDestinationPoint, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Пункт отправления: </p>
+                <input class="form-control" placeholder="Введите пункт отправления" />
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Shipper, "Shipper", htmlAttributes: new { @class = "control-label col-md-2 filter-select" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Shipper", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Shipper, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Пункт назначения: </p>
+                <input class="form-control" placeholder="Введите пункт назначения" />
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Consignee, "Consignee", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Consignee", null, htmlAttributes: new { @class = "form-control filter-select" })
-                    @Html.ValidationMessageFor(model => model.Consignee, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Грузоотправитель: </p>
+                <select class="form-control filter-select" table="5" column="ShortName"></select>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Грузополучатель: </p>
+                <select class="form-control filter-select" table="5" column="ShortName"></select>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CargoUnitAmmount, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CargoUnitAmmount, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CargoUnitAmmount, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Вес груза: </p>
+                <input class="form-control" placeholder="Введите вес перевозимого груза" />
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.idCargoUnitNumber, "idCargoUnitNumber", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idCargoUnitNumber", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idCargoUnitNumber, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Грузополучатель: </p>
+                <select class="form-control filter-select" table="5" column="ShortName"></select>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.idSpecialCondition, "idSpecialCondition", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("idSpecialCondition", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.idSpecialCondition, "", new { @class = "text-danger" })
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Особые условия по доставке: </p>
+                <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-success" />
             </div>
         </div>
     </div>
-}
+</form>
+@*<script src="~/Scripts/selecthandler.js"></script>*@
+@*@using (Html.BeginForm())
+    {
+    <div class="form-horizontal">
+        @Html.LabelFor(model => model.idTranshipmentMethod, "Вид перевозки", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control " })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idDateMonth, "idDateMonth", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookLandFrom, "Страна отправления", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="2" column="LName" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookLandTo, "Страна назначения", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="2" column="LName" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookGNG, "idRefBookGNG", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="col-md-10 filter-select" table="0" column="Name" style="width: 300px"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idRefBookETSNG, "idRefBookETSNG", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="margin-top: 10px;">
+                    <select class="col-md-10 filter-select" table="1" column="Name" style="width: 300px"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    }*@
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-
-
-<script>
-    $(document).ready(function () {
-        $(".filter-country").select2({
-            placeholder: "Выберите страну",
-            allowClear: true,
-            theme: "classic",
-            ajax: {
-                url: "/AutoTransportationRequests/GetCountryList",
-                dataType: "json",
-                delay: 250,
-                data: function (params) {
-                    return {
-                        searchTerm: params.term
-                    };
-                },
-                processResults: function (data, params) {
-                    return {
-                        results: data
-                    };
-                }
-            }
-        });
-    });
-    $(document).ready(function () {
-        $(".filter-gng").select2({
-            placeholder: "Введите код ГНГ",
-            ajax: {
-                url: "/AutoTransportationRequests/GetGNGList",
-                dataType: "json",
-                delay: 1250,
-                data: function (params) {
-                    return {
-                        searchTerm: params.term
-                    };
-                },
-                processResults: function (data, params) {
-                    return {
-                        results: data
-                    };
-                }
-            }
-        });
-    });
-                            //$(document).ready(function () {
-                            //    var selects = $('.filter-select').select2({
-                            //        ajax: {
-                            //            type: 'POST',
-                            //            url: '/AutoTransportationRequests/GetFilteredResult',
-                            //            processResults: function (data) {
-                            //                return {
-                            //                    results: $.map(data, function (item) {
-                            //                        return {
-                            //                            text: item.value,
-                            //                            id: item.value
-                            //                        }
-                            //                    })
-                            //                };
-                            //            },
-                            //            data: function (params) {
-                            //                var that = this;
-                            //                params.filters = JSON.parse(JSON.stringify(filters));
-                            //                var existingFilter = params.filters.find(function (filter) {
-                            //                    return filter.column === $(that).attr('column');
-                            //                });
-                            //                if (existingFilter) {
-                            //                    existingFilter.value = params.term;
-                            //                    existingFilter.editing = true;
-                            //                } else {
-                            //                    params.filters.push({ column: $(this).attr('column'), value: params.term, editing: true, table: $(this).attr('table') });
-                            //                }
-                            //                return { filters: params.filters };
-                            //            },
-                            //            dataType: 'json'
-                            //        },
-                            //        allowClear: true,
-                            //        placeholder: 'Введите фильтр',
-                            //        minimumInputLength: 2,
-                            //        language: {
-                            //            inputTooShort: function (args) {
-                            //                var remainingChars = args.minimum - args.input.length;
-                            //                var message = 'Пожалуйста введите ' + remainingChars + ' или более символов';
-                            //                return message;
-                            //            },
-                            //            noResults: function () {
-                            //                return 'Ничего не найдено';
-                            //            },
-                            //            loadingMore: function () {
-                            //                return 'Подгружаем результаты...';
-                            //            },
-                            //            searching: function () {
-                            //                return 'Ищем в базе…';
-                            //            }
-                            //        }
-                            //    });
-                            //    var filters = [];
-                            //    selects.on('select2:select', function (e) {
-                            //        var that = this;
-                            //        var existingFilter = filters.find(function (filter) {
-                            //            return filter.column === $(that).attr('column');
-                            //        });
-                            //        if (existingFilter) {
-                            //            existingFilter.value = $(this).val();
-                            //        } else {
-                            //            filters.push({ column: $(this).attr('column'), value: $(this).val() });
-                            //        }
-                            //    });
-                            //    selects.on('select2:unselect', function (e) {
-                            //        for (var i = filters.length - 1; i >= 0; --i) {
-                            //            if (filters[i].column == $(this).attr('column')) {
-                            //                filters.splice(i, 1);
-                            //            }
-                            //        }
-                            //    });
-                            //});
-</script>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
