@@ -146,6 +146,7 @@
     <Compile Include="Controllers\AutoTransportationRequestsController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
+    <Compile Include="Controllers\SpecialConditionsController.cs" />
     <Compile Include="Controllers\TransportationRequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -389,6 +390,11 @@
     <Content Include="Views\AutoTransportationRequests\Index.cshtml" />
     <Content Include="Views\Select2\Index.cshtml" />
     <Content Include="Views\Select2\show.cshtml" />
+    <Content Include="Views\SpecialConditions\Create.cshtml" />
+    <Content Include="Views\SpecialConditions\Delete.cshtml" />
+    <Content Include="Views\SpecialConditions\Details.cshtml" />
+    <Content Include="Views\SpecialConditions\Edit.cshtml" />
+    <Content Include="Views\SpecialConditions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

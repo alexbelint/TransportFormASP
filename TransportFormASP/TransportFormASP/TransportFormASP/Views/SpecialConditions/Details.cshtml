@@ -1,0 +1,26 @@
+﻿@model TransportFormASP.Models.SpecialCondition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SpecialCondition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialCondition1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialCondition1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSpecialCondition }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

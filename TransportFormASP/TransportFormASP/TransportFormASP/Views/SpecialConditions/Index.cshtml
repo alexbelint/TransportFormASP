@@ -1,0 +1,46 @@
+﻿@model PagedList.IPagedList<TransportFormASP.Models.SpecialCondition>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Особые условия";
+}
+<br />
+<p>
+    @Html.ActionLink("Создать новую запись", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].SpecialCondition1).ToHtmlString(), "Index")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialCondition1)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Действия
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.idSpecialCondition })">Редактировать</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Delete", new { id = item.idSpecialCondition })">Удалить</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

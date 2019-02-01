@@ -21,7 +21,9 @@ namespace TransportFormASP.Controllers
         ETSNG = 1,
         Countries = 2,
         City = 3,
-        Period = 4
+        Period = 4,
+        Client = 5,
+        SpecialCondition = 6
     }
     public class Select2Controller : Controller
 
@@ -72,6 +74,12 @@ namespace TransportFormASP.Controllers
                     break;
                 case Table.Period:
                     results = db.DateMonth.AsQueryable();
+                    break;
+                case Table.Client:
+                    results = db.RefBookClient.AsQueryable();
+                    break;
+                case Table.SpecialCondition:
+                    results = db.SpecialCondition.AsQueryable();
                     break;
                 default:
                     results = null;
