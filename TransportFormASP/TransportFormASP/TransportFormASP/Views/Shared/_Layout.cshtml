@@ -37,6 +37,8 @@
                             <li>@Html.ActionLink("Станции", "Index", "RefBookStations")</li>
                             <li>@Html.ActionLink("Особые условия", "Index", "SpecialConditions")</li>
                             <li>@Html.ActionLink("Виды отправок", "Index", "RailwayDispatches")</li>
+                            <li>@Html.ActionLink("Род ПС", "Index", "RefBookCars")</li>
+                            <li>@Html.ActionLink("Принадлежность ПС", "Index", "RefBookOwners")</li>
                             @*<li><a>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</a></li>*@
                         </ul>
                     </li>
@@ -48,7 +50,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Заявки на перевозку v0.14</p>
+            <p>&copy; @DateTime.Now.Year - Заявки на перевозку v0.15</p>
         </footer>
     </div>
 

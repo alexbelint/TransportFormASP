@@ -6,122 +6,116 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportFormASP.Models;
 using PagedList;
+using TransportFormASP.Models;
 
 namespace TransportFormASP.Controllers
 {
-    public class RefBookStationsController : Controller
+    public class RefBookOwnersController : Controller
     {
         private BTLCEntities db = new BTLCEntities();
 
-        // GET: RefBookStations
-        public ActionResult Index( int ? page)
+        // GET: RefBookOwners
+        public ActionResult Index(int? page)
         {
-
-            var refBookStations = db.RefBookStations.Include(c => c.NewCode)
-                                                    .Include(c => c.NewName)
-                                                    .Include(c => c.Road)
-                                                    .Include(c => c.RoadAbbr)
-                                                    .Include(c => c.Land);
-
             int pageSize = 16;
             int pageNumber = (page ?? 1);
-            return View(db.RefBookStations.OrderBy(x=>x.Name).ToPagedList(pageNumber, pageSize));
+
+            return View(db.RefBookOwner.OrderBy(x=>x.idRefBookOwner).ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: RefBookStations/Details/5
+        // GET: RefBookOwners/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookOwner refBookOwner = db.RefBookOwner.Find(id);
+            if (refBookOwner == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookOwner);
         }
 
-        // GET: RefBookStations/Create
+        // GET: RefBookOwners/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: RefBookStations/Create
+        // POST: RefBookOwners/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idRefBookStation,DateDownload,Kod,NewCode,Name,NewName,NewParaT,VrParAdd,VrParDel,Road,Land,LinkCode,FromDate,ToDate,RoadID,LandID,RoadAbbr,LandAbbr,PID,DP,PPLand,RegName,OblSity,ParagTxt")] RefBookStations refBookStations)
+        public ActionResult Create([Bind(Include = "idRefBookOwner,DateDownload,OwnerId,OwnerDsc")] RefBookOwner refBookOwner)
         {
             if (ModelState.IsValid)
             {
-                refBookStations.idRefBookStation = Guid.NewGuid();
-                db.RefBookStations.Add(refBookStations);
+                refBookOwner.idRefBookOwner = Guid.NewGuid();
+                db.RefBookOwner.Add(refBookOwner);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(refBookStations);
+            return View(refBookOwner);
         }
 
-        // GET: RefBookStations/Edit/5
+        // GET: RefBookOwners/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookOwner refBookOwner = db.RefBookOwner.Find(id);
+            if (refBookOwner == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookOwner);
         }
 
-        // POST: RefBookStations/Edit/5
+        // POST: RefBookOwners/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idRefBookStation,DateDownload,Kod,NewCode,Name,NewName,NewParaT,VrParAdd,VrParDel,Road,Land,LinkCode,FromDate,ToDate,RoadID,LandID,RoadAbbr,LandAbbr,PID,DP,PPLand,RegName,OblSity,ParagTxt")] RefBookStations refBookStations)
+        public ActionResult Edit([Bind(Include = "idRefBookOwner,DateDownload,OwnerId,OwnerDsc")] RefBookOwner refBookOwner)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(refBookStations).State = EntityState.Modified;
+                db.Entry(refBookOwner).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(refBookStations);
+            return View(refBookOwner);
         }
 
-        // GET: RefBookStations/Delete/5
+        // GET: RefBookOwners/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookOwner refBookOwner = db.RefBookOwner.Find(id);
+            if (refBookOwner == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookOwner);
         }
 
-        // POST: RefBookStations/Delete/5
+        // POST: RefBookOwners/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            db.RefBookStations.Remove(refBookStations);
+            RefBookOwner refBookOwner = db.RefBookOwner.Find(id);
+            db.RefBookOwner.Remove(refBookOwner);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

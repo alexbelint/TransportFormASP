@@ -11,117 +11,111 @@ using PagedList;
 
 namespace TransportFormASP.Controllers
 {
-    public class RefBookStationsController : Controller
+    public class RefBookCarsController : Controller
     {
         private BTLCEntities db = new BTLCEntities();
 
-        // GET: RefBookStations
-        public ActionResult Index( int ? page)
+        // GET: RefBookCars
+        public ActionResult Index(int? page)
         {
-
-            var refBookStations = db.RefBookStations.Include(c => c.NewCode)
-                                                    .Include(c => c.NewName)
-                                                    .Include(c => c.Road)
-                                                    .Include(c => c.RoadAbbr)
-                                                    .Include(c => c.Land);
-
             int pageSize = 16;
             int pageNumber = (page ?? 1);
-            return View(db.RefBookStations.OrderBy(x=>x.Name).ToPagedList(pageNumber, pageSize));
+
+            return View(db.RefBookCars.OrderBy(x=>x.Name).ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: RefBookStations/Details/5
+        // GET: RefBookCars/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookCars refBookCars = db.RefBookCars.Find(id);
+            if (refBookCars == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookCars);
         }
 
-        // GET: RefBookStations/Create
+        // GET: RefBookCars/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: RefBookStations/Create
+        // POST: RefBookCars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idRefBookStation,DateDownload,Kod,NewCode,Name,NewName,NewParaT,VrParAdd,VrParDel,Road,Land,LinkCode,FromDate,ToDate,RoadID,LandID,RoadAbbr,LandAbbr,PID,DP,PPLand,RegName,OblSity,ParagTxt")] RefBookStations refBookStations)
+        public ActionResult Create([Bind(Include = "idRefBookCars,DateDownload,CarId,Name,Model,GP,Volume,Axis,TareW,CarType,Gross,Length")] RefBookCars refBookCars)
         {
             if (ModelState.IsValid)
             {
-                refBookStations.idRefBookStation = Guid.NewGuid();
-                db.RefBookStations.Add(refBookStations);
+                refBookCars.idRefBookCars = Guid.NewGuid();
+                db.RefBookCars.Add(refBookCars);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(refBookStations);
+            return View(refBookCars);
         }
 
-        // GET: RefBookStations/Edit/5
+        // GET: RefBookCars/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookCars refBookCars = db.RefBookCars.Find(id);
+            if (refBookCars == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookCars);
         }
 
-        // POST: RefBookStations/Edit/5
+        // POST: RefBookCars/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idRefBookStation,DateDownload,Kod,NewCode,Name,NewName,NewParaT,VrParAdd,VrParDel,Road,Land,LinkCode,FromDate,ToDate,RoadID,LandID,RoadAbbr,LandAbbr,PID,DP,PPLand,RegName,OblSity,ParagTxt")] RefBookStations refBookStations)
+        public ActionResult Edit([Bind(Include = "idRefBookCars,DateDownload,CarId,Name,Model,GP,Volume,Axis,TareW,CarType,Gross,Length")] RefBookCars refBookCars)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(refBookStations).State = EntityState.Modified;
+                db.Entry(refBookCars).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(refBookStations);
+            return View(refBookCars);
         }
 
-        // GET: RefBookStations/Delete/5
+        // GET: RefBookCars/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            if (refBookStations == null)
+            RefBookCars refBookCars = db.RefBookCars.Find(id);
+            if (refBookCars == null)
             {
                 return HttpNotFound();
             }
-            return View(refBookStations);
+            return View(refBookCars);
         }
 
-        // POST: RefBookStations/Delete/5
+        // POST: RefBookCars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            RefBookStations refBookStations = db.RefBookStations.Find(id);
-            db.RefBookStations.Remove(refBookStations);
+            RefBookCars refBookCars = db.RefBookCars.Find(id);
+            db.RefBookCars.Remove(refBookCars);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

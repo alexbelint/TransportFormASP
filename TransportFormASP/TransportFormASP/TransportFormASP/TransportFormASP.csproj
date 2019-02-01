@@ -146,6 +146,8 @@
     <Compile Include="Controllers\AutoTransportationRequestsController.cs" />
     <Compile Include="Controllers\RailTransportationRequestsController.cs" />
     <Compile Include="Controllers\RailwayDispatchesController.cs" />
+    <Compile Include="Controllers\RefBookCarsController.cs" />
+    <Compile Include="Controllers\RefBookOwnersController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\SpecialConditionsController.cs" />
@@ -408,6 +410,16 @@
     <Content Include="Views\RailwayDispatches\Details.cshtml" />
     <Content Include="Views\RailwayDispatches\Edit.cshtml" />
     <Content Include="Views\RailwayDispatches\Index.cshtml" />
+    <Content Include="Views\RefBookOwners\Create.cshtml" />
+    <Content Include="Views\RefBookOwners\Delete.cshtml" />
+    <Content Include="Views\RefBookOwners\Details.cshtml" />
+    <Content Include="Views\RefBookOwners\Edit.cshtml" />
+    <Content Include="Views\RefBookOwners\Index.cshtml" />
+    <Content Include="Views\RefBookCars\Create.cshtml" />
+    <Content Include="Views\RefBookCars\Delete.cshtml" />
+    <Content Include="Views\RefBookCars\Details.cshtml" />
+    <Content Include="Views\RefBookCars\Edit.cshtml" />
+    <Content Include="Views\RefBookCars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

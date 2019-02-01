@@ -1,0 +1,57 @@
+﻿@model PagedList.IPagedList<TransportFormASP.Models.RefBookOwner>
+@using PagedList.Mvc
+<br />
+<p>
+    @Html.ActionLink("Создать новую запись", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].DateDownload).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].OwnerId).ToHtmlString(), "Index")
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].OwnerDsc).ToHtmlString(), "Index")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDownload)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerDsc)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Действия
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.idRefBookOwner })">Редактировать</a></li>
+                        <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.idRefBookOwner })">Подробнее</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Delete", new { id = item.idRefBookOwner })">Удалить</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model TransportFormASP.Models.RefBookOwner
+
+@{
+    ViewBag.Title = "Подробнее";
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDownload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDownload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerDsc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerDsc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Править", "Edit", new { id = Model.idRefBookOwner }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>
