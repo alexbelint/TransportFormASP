@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TransportFormASP.Models.RailwayDispatch>
+
+@{
+    ViewBag.Title = "Виды отправок";
+}
+
+<br />
+<p>
+    @Html.ActionLink("Создать новую запись", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DispatchType)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Действия
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.idRailwayDispatch })">Редактировать</a></li>
+                        <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.idRailwayDispatch })">Подробнее</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Delete", new { id = item.idRailwayDispatch })">Удалить</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

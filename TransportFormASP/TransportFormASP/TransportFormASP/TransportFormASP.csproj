@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutoTransportationRequestsController.cs" />
     <Compile Include="Controllers\RailTransportationRequestsController.cs" />
+    <Compile Include="Controllers\RailwayDispatchesController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\SpecialConditionsController.cs" />
@@ -402,6 +403,11 @@
     <Content Include="Views\RailTransportationRequests\Details.cshtml" />
     <Content Include="Views\RailTransportationRequests\Edit.cshtml" />
     <Content Include="Views\RailTransportationRequests\Index.cshtml" />
+    <Content Include="Views\RailwayDispatches\Create.cshtml" />
+    <Content Include="Views\RailwayDispatches\Delete.cshtml" />
+    <Content Include="Views\RailwayDispatches\Details.cshtml" />
+    <Content Include="Views\RailwayDispatches\Edit.cshtml" />
+    <Content Include="Views\RailwayDispatches\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

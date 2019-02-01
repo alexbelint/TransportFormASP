@@ -77,6 +77,18 @@ namespace TransportFormASP.Controllers
                 case SelectorTable.SpecialCondition:
                     results = db.SpecialCondition.AsQueryable();
                     break;
+                case SelectorTable.RailwayDispatch:
+                    results = db.RailwayDispatch.AsQueryable();
+                    break;
+                case SelectorTable.RefBookCars:
+                    results = db.RefBookCars.AsQueryable();
+                    break;
+                case SelectorTable.RefBookOwner:
+                    results = db.RefBookOwner.AsQueryable();
+                    break;
+                case SelectorTable.CargoUnitNumbers:
+                    results = db.CargoUnitNumber.AsQueryable();
+                    break;
                 default:
                     results = null;
                     break;
