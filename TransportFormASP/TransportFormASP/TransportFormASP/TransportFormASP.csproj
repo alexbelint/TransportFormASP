@@ -149,6 +149,7 @@
     <Compile Include="Controllers\RefBookCarsController.cs" />
     <Compile Include="Controllers\RefBookOwnersController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
+    <Compile Include="Controllers\SeaTransportationRequestsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\SpecialConditionsController.cs" />
     <Compile Include="Controllers\TransportationRequestsController.cs" />
@@ -420,6 +421,11 @@
     <Content Include="Views\RefBookCars\Details.cshtml" />
     <Content Include="Views\RefBookCars\Edit.cshtml" />
     <Content Include="Views\RefBookCars\Index.cshtml" />
+    <Content Include="Views\SeaTransportationRequests\Create.cshtml" />
+    <Content Include="Views\SeaTransportationRequests\Delete.cshtml" />
+    <Content Include="Views\SeaTransportationRequests\Details.cshtml" />
+    <Content Include="Views\SeaTransportationRequests\Edit.cshtml" />
+    <Content Include="Views\SeaTransportationRequests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
