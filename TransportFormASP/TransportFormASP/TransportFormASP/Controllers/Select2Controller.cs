@@ -11,7 +11,7 @@ namespace TransportFormASP.Controllers
     public class Select2Controller : Controller
 
     {
-        private BTLCEntities db = new BTLCEntities();
+        private BTLC db = new BTLC();
         public ActionResult Index()
         {
             return View();

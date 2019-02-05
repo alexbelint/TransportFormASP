@@ -13,7 +13,7 @@ namespace TransportFormASP.Controllers
 {
     public class SpecialConditionsController : Controller
     {
-        private BTLCEntities db = new BTLCEntities();
+        private BTLC db = new BTLC();
 
         // GET: SpecialConditions
         public ActionResult Index(int? page)

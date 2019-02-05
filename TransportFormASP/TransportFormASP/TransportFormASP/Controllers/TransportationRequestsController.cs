@@ -12,12 +12,26 @@ namespace TransportFormASP.Controllers
 {
     public class TransportationRequestsController : Controller
     {
-        private BTLCEntities db = new BTLCEntities();
+        private BTLC db = new BTLC();
 
         // GET: TransportationRequests
         public ActionResult Index()
         {
-            var transportationRequest = db.TransportationRequest.Include(t => t.CargoUnitNumber).Include(t => t.DateMonth).Include(t => t.DepartuePoint).Include(t => t.DestinationPoint).Include(t => t.DestinationPort).Include(t => t.RailwayDispatch).Include(t => t.SpecialCondition).Include(t => t.RefBookCars).Include(t => t.RefBookClient).Include(t => t.RefBookClient1).Include(t => t.RefBookETSNG).Include(t => t.RefBookGNG).Include(t => t.RefBookLand).Include(t => t.RefBookLand1).Include(t => t.RefBookOwner).Include(t => t.RefBookStations).Include(t => t.RefBookStations1).Include(t => t.TranshipmentMethod).Include(t => t.DepartuePort1);
+            var transportationRequest = db.TransportationRequest.Include(t => t.CargoUnitNumber)
+                .Include(t => t.DateMonth)
+                .Include(t => t.RailwayDispatch)
+                .Include(t => t.SpecialCondition)
+                .Include(t => t.RefBookCars)
+                .Include(t => t.RefBookClient)
+                .Include(t => t.RefBookClient1)
+                .Include(t => t.RefBookETSNG)
+                .Include(t => t.RefBookGNG)
+                .Include(t => t.RefBookLand)
+                .Include(t => t.RefBookLand1)
+                .Include(t => t.RefBookOwner)
+                .Include(t => t.RefBookStations)
+                .Include(t => t.RefBookStations1)
+                .Include(t => t.TranshipmentMethod);
             return View(transportationRequest.ToList());
         }
 
@@ -41,9 +55,6 @@ namespace TransportFormASP.Controllers
         {
             ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1");
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
-            ViewBag.idDepartuePoint = new SelectList(db.DepartuePoint, "idDepartuePoint", "Adress");
-            ViewBag.idDestinationPoint = new SelectList(db.DestinationPoint, "idDestinationPoint", "Adress");
-            ViewBag.idDestinationPort = new SelectList(db.DestinationPort, "idDestinationPort", "PortName");
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType");
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1");
             ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId");
@@ -57,7 +68,6 @@ namespace TransportFormASP.Controllers
             ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
             ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
-            ViewBag.idDepartuePort = new SelectList(db.DepartuePort, "idDepartuePort", "PortName");
             return View();
         }
 
@@ -78,9 +88,6 @@ namespace TransportFormASP.Controllers
 
             ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
-            ViewBag.idDepartuePoint = new SelectList(db.DepartuePoint, "idDepartuePoint", "Adress", transportationRequest.idDepartuePoint);
-            ViewBag.idDestinationPoint = new SelectList(db.DestinationPoint, "idDestinationPoint", "Adress", transportationRequest.idDestinationPoint);
-            ViewBag.idDestinationPort = new SelectList(db.DestinationPort, "idDestinationPort", "PortName", transportationRequest.idDestinationPort);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
             ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
@@ -94,7 +101,6 @@ namespace TransportFormASP.Controllers
             ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
             ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-            ViewBag.idDepartuePort = new SelectList(db.DepartuePort, "idDepartuePort", "PortName", transportationRequest.idDepartuePort);
             return View(transportationRequest);
         }
 
@@ -112,9 +118,6 @@ namespace TransportFormASP.Controllers
             }
             ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
-            ViewBag.idDepartuePoint = new SelectList(db.DepartuePoint, "idDepartuePoint", "Adress", transportationRequest.idDepartuePoint);
-            ViewBag.idDestinationPoint = new SelectList(db.DestinationPoint, "idDestinationPoint", "Adress", transportationRequest.idDestinationPoint);
-            ViewBag.idDestinationPort = new SelectList(db.DestinationPort, "idDestinationPort", "PortName", transportationRequest.idDestinationPort);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
             ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
@@ -128,7 +131,7 @@ namespace TransportFormASP.Controllers
             ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
             ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-            ViewBag.idDepartuePort = new SelectList(db.DepartuePort, "idDepartuePort", "PortName", transportationRequest.idDepartuePort);
+           
             return View(transportationRequest);
         }
 
@@ -147,9 +150,6 @@ namespace TransportFormASP.Controllers
             }
             ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
-            ViewBag.idDepartuePoint = new SelectList(db.DepartuePoint, "idDepartuePoint", "Adress", transportationRequest.idDepartuePoint);
-            ViewBag.idDestinationPoint = new SelectList(db.DestinationPoint, "idDestinationPoint", "Adress", transportationRequest.idDestinationPoint);
-            ViewBag.idDestinationPort = new SelectList(db.DestinationPort, "idDestinationPort", "PortName", transportationRequest.idDestinationPort);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
             ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
@@ -163,7 +163,6 @@ namespace TransportFormASP.Controllers
             ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
             ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-            ViewBag.idDepartuePort = new SelectList(db.DepartuePort, "idDepartuePort", "PortName", transportationRequest.idDepartuePort);
             return View(transportationRequest);
         }
 

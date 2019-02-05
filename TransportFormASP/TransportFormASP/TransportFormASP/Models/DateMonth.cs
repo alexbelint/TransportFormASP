@@ -11,8 +11,7 @@ namespace TransportFormASP.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class DateMonth
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +19,8 @@ namespace TransportFormASP.Models
         {
             this.TransportationRequest = new HashSet<TransportationRequest>();
         }
-        [Display(Name = "Период перевозки")]
+    
         public System.Guid idDateMonth { get; set; }
-        
-        public virtual DepartuePort DepartuePort1 { get; set; }
         public string DateMonth1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

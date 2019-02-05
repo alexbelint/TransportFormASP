@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BTLCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BTLCUpdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CargoUnitNumber">
           <Key>
             <PropertyRef Name="idCargoUnitNumber" />
@@ -18,40 +18,6 @@
           </Key>
           <Property Name="idDateMonth" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DateMonth" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="DepartuePoint">
-          <Key>
-            <PropertyRef Name="idDepartuePoint" />
-          </Key>
-          <Property Name="idDepartuePoint" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="100" />
-          <Property Name="ContactName" Type="nvarchar" MaxLength="75" />
-          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="DepartuePort">
-          <Key>
-            <PropertyRef Name="idDepartuePort" />
-          </Key>
-          <Property Name="idDepartuePort" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PortName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="DestinationPoint">
-          <Key>
-            <PropertyRef Name="idDestinationPoint" />
-          </Key>
-          <Property Name="idDestinationPoint" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="100" />
-          <Property Name="ContactName" Type="nvarchar" MaxLength="75" />
-          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="DestinationPort">
-          <Key>
-            <PropertyRef Name="idDestinationPort" />
-          </Key>
-          <Property Name="idDestinationPort" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PortName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="RailwayDispatch">
           <Key>
@@ -88,10 +54,11 @@
           <Property Name="DeliveryType" Type="varchar" MaxLength="50" />
           <Property Name="RefBookStationFrom" Type="uniqueidentifier" />
           <Property Name="RefBookStationTo" Type="uniqueidentifier" />
-          <Property Name="idDepartuePoint" Type="uniqueidentifier" />
-          <Property Name="idDestinationPoint" Type="uniqueidentifier" />
-          <Property Name="idDepartuePort" Type="uniqueidentifier" />
-          <Property Name="idDestinationPort" Type="uniqueidentifier" />
+          <Property Name="DepartuePoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="DestinationPoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="PointAdress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="Shipper" Type="uniqueidentifier" />
           <Property Name="Consignee" Type="uniqueidentifier" />
           <Property Name="idRailwayDispatch" Type="uniqueidentifier" />
@@ -267,54 +234,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransportationRequest_DepartuePoint">
-          <End Role="DepartuePoint" Type="Self.DepartuePoint" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartuePoint">
-              <PropertyRef Name="idDepartuePoint" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDepartuePoint" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DepartuePort">
-          <End Role="DepartuePort" Type="Self.DepartuePort" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartuePort">
-              <PropertyRef Name="idDepartuePort" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDepartuePort" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DestinationPoint">
-          <End Role="DestinationPoint" Type="Self.DestinationPoint" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DestinationPoint">
-              <PropertyRef Name="idDestinationPoint" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDestinationPoint" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DestinationPort">
-          <End Role="DestinationPort" Type="Self.DestinationPort" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DestinationPort">
-              <PropertyRef Name="idDestinationPort" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDestinationPort" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransportationRequest_RailwayDispatch">
           <End Role="RailwayDispatch" Type="Self.RailwayDispatch" Multiplicity="0..1" />
           <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
@@ -471,13 +390,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BTLCModelStoreContainer">
+        <EntityContainer Name="BTLCUpdModelStoreContainer">
           <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DateMonth" EntityType="Self.DateMonth" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DepartuePoint" EntityType="Self.DepartuePoint" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DepartuePort" EntityType="Self.DepartuePort" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DestinationPoint" EntityType="Self.DestinationPoint" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DestinationPort" EntityType="Self.DestinationPort" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TranshipmentMethod" EntityType="Self.TranshipmentMethod" Schema="dbo" store:Type="Tables" />
@@ -503,22 +418,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_DateMonth" Association="Self.FK_TransportationRequest_DateMonth">
             <End Role="DateMonth" EntitySet="DateMonth" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DepartuePoint" Association="Self.FK_TransportationRequest_DepartuePoint">
-            <End Role="DepartuePoint" EntitySet="DepartuePoint" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DepartuePort" Association="Self.FK_TransportationRequest_DepartuePort">
-            <End Role="DepartuePort" EntitySet="DepartuePort" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DestinationPoint" Association="Self.FK_TransportationRequest_DestinationPoint">
-            <End Role="DestinationPoint" EntitySet="DestinationPoint" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DestinationPort" Association="Self.FK_TransportationRequest_DestinationPort">
-            <End Role="DestinationPort" EntitySet="DestinationPort" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_RailwayDispatch" Association="Self.FK_TransportationRequest_RailwayDispatch">
@@ -574,10 +473,11 @@
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BTLCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BTLCUpdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CargoUnitNumber">
           <Key>
             <PropertyRef Name="idCargoUnitNumber" />
@@ -593,44 +493,6 @@
           <Property Name="idDateMonth" Type="Guid" Nullable="false" />
           <Property Name="DateMonth1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DateMonth" FromRole="DateMonth" ToRole="TransportationRequest" />
-        </EntityType>
-        <EntityType Name="DepartuePoint">
-          <Key>
-            <PropertyRef Name="idDepartuePoint" />
-          </Key>
-          <Property Name="idDepartuePoint" Type="Guid" Nullable="false" />
-          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ContactName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DepartuePoint" FromRole="DepartuePoint" ToRole="TransportationRequest" />
-        </EntityType>
-        <EntityType Name="DepartuePort">
-          <Key>
-            <PropertyRef Name="idDepartuePort" />
-          </Key>
-          <Property Name="idDepartuePort" Type="Guid" Nullable="false" />
-          <Property Name="PortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TransportationRequest1" Relationship="BTLCModel.FK_TransportationRequest_DepartuePort" FromRole="DepartuePort" ToRole="TransportationRequest" />
-        </EntityType>
-        <EntityType Name="DestinationPoint">
-          <Key>
-            <PropertyRef Name="idDestinationPoint" />
-          </Key>
-          <Property Name="idDestinationPoint" Type="Guid" Nullable="false" />
-          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ContactName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DestinationPoint" FromRole="DestinationPoint" ToRole="TransportationRequest" />
-        </EntityType>
-        <EntityType Name="DestinationPort">
-          <Key>
-            <PropertyRef Name="idDestinationPort" />
-          </Key>
-          <Property Name="idDestinationPort" Type="Guid" Nullable="false" />
-          <Property Name="PortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_DestinationPort" FromRole="DestinationPort" ToRole="TransportationRequest" />
         </EntityType>
         <EntityType Name="RailwayDispatch">
           <Key>
@@ -648,11 +510,20 @@
           <Property Name="SpecialCondition1" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_SpecialCondition" FromRole="SpecialCondition" ToRole="TransportationRequest" />
         </EntityType>
+        <EntityType Name="TranshipmentMethod">
+          <Key>
+            <PropertyRef Name="idTranshipmentMethod" />
+          </Key>
+          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
+          <Property Name="TranshipmentMethod1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_TranshipmentMethod" FromRole="TranshipmentMethod" ToRole="TransportationRequest" />
+        </EntityType>
         <EntityType Name="TransportationRequest">
           <Key>
             <PropertyRef Name="idTransportationRequest" />
           </Key>
           <Property Name="idTransportationRequest" Type="Guid" Nullable="false" />
+          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
           <Property Name="idDateMonth" Type="Guid" />
           <Property Name="idRefBookLandFrom" Type="Guid" />
           <Property Name="idRefBookLandTo" Type="Guid" />
@@ -661,10 +532,11 @@
           <Property Name="DeliveryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RefBookStationFrom" Type="Guid" />
           <Property Name="RefBookStationTo" Type="Guid" />
-          <Property Name="idDepartuePoint" Type="Guid" />
-          <Property Name="idDestinationPoint" Type="Guid" />
-          <Property Name="idDepartuePort" Type="Guid" />
-          <Property Name="idDestinationPort" Type="Guid" />
+          <Property Name="DepartuePoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DestinationPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PointAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Shipper" Type="Guid" />
           <Property Name="Consignee" Type="Guid" />
           <Property Name="idRailwayDispatch" Type="Guid" />
@@ -677,11 +549,9 @@
           <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CargoUnitNumber" Relationship="Self.FK_TransportationRequest_CargoUnitNumber" FromRole="TransportationRequest" ToRole="CargoUnitNumber" />
           <NavigationProperty Name="DateMonth" Relationship="Self.FK_TransportationRequest_DateMonth" FromRole="TransportationRequest" ToRole="DateMonth" />
-          <NavigationProperty Name="DepartuePoint" Relationship="Self.FK_TransportationRequest_DepartuePoint" FromRole="TransportationRequest" ToRole="DepartuePoint" />
-          <NavigationProperty Name="DestinationPoint" Relationship="Self.FK_TransportationRequest_DestinationPoint" FromRole="TransportationRequest" ToRole="DestinationPoint" />
-          <NavigationProperty Name="DestinationPort" Relationship="Self.FK_TransportationRequest_DestinationPort" FromRole="TransportationRequest" ToRole="DestinationPort" />
           <NavigationProperty Name="RailwayDispatch" Relationship="Self.FK_TransportationRequest_RailwayDispatch" FromRole="TransportationRequest" ToRole="RailwayDispatch" />
           <NavigationProperty Name="SpecialCondition" Relationship="Self.FK_TransportationRequest_SpecialCondition" FromRole="TransportationRequest" ToRole="SpecialCondition" />
+          <NavigationProperty Name="TranshipmentMethod" Relationship="Self.FK_TransportationRequest_TranshipmentMethod" FromRole="TransportationRequest" ToRole="TranshipmentMethod" />
           <NavigationProperty Name="RefBookCars" Relationship="Self.FK_TransportationRequest_RefBookCars" FromRole="TransportationRequest" ToRole="RefBookCars" />
           <NavigationProperty Name="RefBookClient" Relationship="Self.FK_TransportationRequest_RefBookClient" FromRole="TransportationRequest" ToRole="RefBookClient" />
           <NavigationProperty Name="RefBookClient1" Relationship="Self.FK_TransportationRequest_RefBookClient1" FromRole="TransportationRequest" ToRole="RefBookClient" />
@@ -692,9 +562,6 @@
           <NavigationProperty Name="RefBookOwner" Relationship="Self.FK_TransportationRequest_RefBookOwner" FromRole="TransportationRequest" ToRole="RefBookOwner" />
           <NavigationProperty Name="RefBookStations" Relationship="Self.FK_TransportationRequest_RefBookStations" FromRole="TransportationRequest" ToRole="RefBookStations" />
           <NavigationProperty Name="RefBookStations1" Relationship="Self.FK_TransportationRequest_RefBookStations1" FromRole="TransportationRequest" ToRole="RefBookStations" />
-          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="TranshipmentMethod" Relationship="BTLCModel.FK_TransportationRequest_TranshipmentMethod" FromRole="TransportationRequest" ToRole="TranshipmentMethod" />
-          <NavigationProperty Name="DepartuePort1" Relationship="BTLCModel.FK_TransportationRequest_DepartuePort" FromRole="TransportationRequest" ToRole="DepartuePort" />
         </EntityType>
         <EntityType Name="RefBookCars">
           <Key>
@@ -850,42 +717,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransportationRequest_DepartuePoint">
-          <End Role="DepartuePoint" Type="Self.DepartuePoint" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartuePoint">
-              <PropertyRef Name="idDepartuePoint" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDepartuePoint" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DestinationPoint">
-          <End Role="DestinationPoint" Type="Self.DestinationPoint" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DestinationPoint">
-              <PropertyRef Name="idDestinationPoint" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDestinationPoint" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DestinationPort">
-          <End Role="DestinationPort" Type="Self.DestinationPort" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DestinationPort">
-              <PropertyRef Name="idDestinationPort" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDestinationPort" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransportationRequest_RailwayDispatch">
           <End Role="RailwayDispatch" Type="Self.RailwayDispatch" Multiplicity="0..1" />
           <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
@@ -907,6 +738,18 @@
             </Principal>
             <Dependent Role="TransportationRequest">
               <PropertyRef Name="idSpecialCondition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportationRequest_TranshipmentMethod">
+          <End Role="TranshipmentMethod" Type="Self.TranshipmentMethod" Multiplicity="1" />
+          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TranshipmentMethod">
+              <PropertyRef Name="idTranshipmentMethod" />
+            </Principal>
+            <Dependent Role="TransportationRequest">
+              <PropertyRef Name="idTranshipmentMethod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1054,15 +897,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BTLCEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BTLC" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" />
           <EntitySet Name="DateMonth" EntityType="Self.DateMonth" />
-          <EntitySet Name="DepartuePoint" EntityType="Self.DepartuePoint" />
-          <EntitySet Name="DepartuePort" EntityType="Self.DepartuePort" />
-          <EntitySet Name="DestinationPoint" EntityType="Self.DestinationPoint" />
-          <EntitySet Name="DestinationPort" EntityType="Self.DestinationPort" />
           <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" />
           <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" />
+          <EntitySet Name="TranshipmentMethod" EntityType="Self.TranshipmentMethod" />
           <EntitySet Name="TransportationRequest" EntityType="Self.TransportationRequest" />
           <EntitySet Name="RefBookCars" EntityType="Self.RefBookCars" />
           <EntitySet Name="RefBookClient" EntityType="Self.RefBookClient" />
@@ -1079,24 +919,16 @@
             <End Role="DateMonth" EntitySet="DateMonth" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DepartuePoint" Association="Self.FK_TransportationRequest_DepartuePoint">
-            <End Role="DepartuePoint" EntitySet="DepartuePoint" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DestinationPoint" Association="Self.FK_TransportationRequest_DestinationPoint">
-            <End Role="DestinationPoint" EntitySet="DestinationPoint" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DestinationPort" Association="Self.FK_TransportationRequest_DestinationPort">
-            <End Role="DestinationPort" EntitySet="DestinationPort" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_RailwayDispatch" Association="Self.FK_TransportationRequest_RailwayDispatch">
             <End Role="RailwayDispatch" EntitySet="RailwayDispatch" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_SpecialCondition" Association="Self.FK_TransportationRequest_SpecialCondition">
             <End Role="SpecialCondition" EntitySet="SpecialCondition" />
+            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportationRequest_TranshipmentMethod" Association="Self.FK_TransportationRequest_TranshipmentMethod">
+            <End Role="TranshipmentMethod" EntitySet="TranshipmentMethod" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_RefBookCars" Association="Self.FK_TransportationRequest_RefBookCars">
@@ -1147,56 +979,15 @@
             <End Role="RefBookLand" EntitySet="RefBookLand" />
             <End Role="RefBookClient" EntitySet="RefBookClient" />
           </AssociationSet>
-          <EntitySet Name="TranshipmentMethod" EntityType="BTLCModel.TranshipmentMethod" />
-          <AssociationSet Name="FK_TransportationRequest_TranshipmentMethod" Association="BTLCModel.FK_TransportationRequest_TranshipmentMethod">
-            <End Role="TranshipmentMethod" EntitySet="TranshipmentMethod" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_DepartuePort" Association="BTLCModel.FK_TransportationRequest_DepartuePort">
-            <End Role="DepartuePort" EntitySet="DepartuePort" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="TranshipmentMethod">
-          <Key>
-            <PropertyRef Name="idTranshipmentMethod" />
-          </Key>
-          <Property Name="idTranshipmentMethod" Type="Guid" Nullable="false" />
-          <Property Name="TranshipmentMethod1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TransportationRequest" Relationship="BTLCModel.FK_TransportationRequest_TranshipmentMethod" FromRole="TranshipmentMethod" ToRole="TransportationRequest" />
-        </EntityType>
-        <Association Name="FK_TransportationRequest_TranshipmentMethod">
-          <End Type="BTLCModel.TranshipmentMethod" Role="TranshipmentMethod" Multiplicity="1" />
-          <End Type="BTLCModel.TransportationRequest" Role="TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TranshipmentMethod">
-              <PropertyRef Name="idTranshipmentMethod" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idTranshipmentMethod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_DepartuePort">
-          <End Type="BTLCModel.DepartuePort" Role="DepartuePort" Multiplicity="0..1" />
-          <End Type="BTLCModel.TransportationRequest" Role="TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartuePort">
-              <PropertyRef Name="idDepartuePort" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idDepartuePort" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BTLCModelStoreContainer" CdmEntityContainer="BTLCEntities">
+        <EntityContainerMapping StorageEntityContainer="BTLCUpdModelStoreContainer" CdmEntityContainer="BTLC">
           <EntitySetMapping Name="CargoUnitNumber">
-            <EntityTypeMapping TypeName="BTLCModel.CargoUnitNumber">
+            <EntityTypeMapping TypeName="BTLCUpdModel.CargoUnitNumber">
               <MappingFragment StoreEntitySet="CargoUnitNumber">
                 <ScalarProperty Name="idCargoUnitNumber" ColumnName="idCargoUnitNumber" />
                 <ScalarProperty Name="CargoUnitNumber1" ColumnName="CargoUnitNumber" />
@@ -1204,53 +995,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DateMonth">
-            <EntityTypeMapping TypeName="BTLCModel.DateMonth">
+            <EntityTypeMapping TypeName="BTLCUpdModel.DateMonth">
               <MappingFragment StoreEntitySet="DateMonth">
                 <ScalarProperty Name="idDateMonth" ColumnName="idDateMonth" />
                 <ScalarProperty Name="DateMonth1" ColumnName="DateMonth" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DepartuePoint">
-            <EntityTypeMapping TypeName="BTLCModel.DepartuePoint">
-              <MappingFragment StoreEntitySet="DepartuePoint">
-                <ScalarProperty Name="idDepartuePoint" ColumnName="idDepartuePoint" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DepartuePort">
-            <EntityTypeMapping TypeName="BTLCModel.DepartuePort">
-              <MappingFragment StoreEntitySet="DepartuePort">
-                <ScalarProperty Name="idDepartuePort" ColumnName="idDepartuePort" />
-                <ScalarProperty Name="PortName" ColumnName="PortName" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DestinationPoint">
-            <EntityTypeMapping TypeName="BTLCModel.DestinationPoint">
-              <MappingFragment StoreEntitySet="DestinationPoint">
-                <ScalarProperty Name="idDestinationPoint" ColumnName="idDestinationPoint" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DestinationPort">
-            <EntityTypeMapping TypeName="BTLCModel.DestinationPort">
-              <MappingFragment StoreEntitySet="DestinationPort">
-                <ScalarProperty Name="idDestinationPort" ColumnName="idDestinationPort" />
-                <ScalarProperty Name="PortName" ColumnName="PortName" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RailwayDispatch">
-            <EntityTypeMapping TypeName="BTLCModel.RailwayDispatch">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RailwayDispatch">
               <MappingFragment StoreEntitySet="RailwayDispatch">
                 <ScalarProperty Name="idRailwayDispatch" ColumnName="idRailwayDispatch" />
                 <ScalarProperty Name="DispatchType" ColumnName="DispatchType" />
@@ -1258,18 +1011,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpecialCondition">
-            <EntityTypeMapping TypeName="BTLCModel.SpecialCondition">
+            <EntityTypeMapping TypeName="BTLCUpdModel.SpecialCondition">
               <MappingFragment StoreEntitySet="SpecialCondition">
                 <ScalarProperty Name="idSpecialCondition" ColumnName="idSpecialCondition" />
                 <ScalarProperty Name="SpecialCondition1" ColumnName="SpecialCondition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TransportationRequest">
-            <EntityTypeMapping TypeName="BTLCModel.TransportationRequest">
-              <MappingFragment StoreEntitySet="TransportationRequest">
+          <EntitySetMapping Name="TranshipmentMethod">
+            <EntityTypeMapping TypeName="BTLCUpdModel.TranshipmentMethod">
+              <MappingFragment StoreEntitySet="TranshipmentMethod">
                 <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
+                <ScalarProperty Name="TranshipmentMethod1" ColumnName="TranshipmentMethod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransportationRequest">
+            <EntityTypeMapping TypeName="BTLCUpdModel.TransportationRequest">
+              <MappingFragment StoreEntitySet="TransportationRequest">
                 <ScalarProperty Name="idTransportationRequest" ColumnName="idTransportationRequest" />
+                <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
                 <ScalarProperty Name="idDateMonth" ColumnName="idDateMonth" />
                 <ScalarProperty Name="idRefBookLandFrom" ColumnName="idRefBookLandFrom" />
                 <ScalarProperty Name="idRefBookLandTo" ColumnName="idRefBookLandTo" />
@@ -1278,10 +1039,11 @@
                 <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
                 <ScalarProperty Name="RefBookStationFrom" ColumnName="RefBookStationFrom" />
                 <ScalarProperty Name="RefBookStationTo" ColumnName="RefBookStationTo" />
-                <ScalarProperty Name="idDepartuePoint" ColumnName="idDepartuePoint" />
-                <ScalarProperty Name="idDestinationPoint" ColumnName="idDestinationPoint" />
-                <ScalarProperty Name="idDepartuePort" ColumnName="idDepartuePort" />
-                <ScalarProperty Name="idDestinationPort" ColumnName="idDestinationPort" />
+                <ScalarProperty Name="DepartuePoint" ColumnName="DepartuePoint" />
+                <ScalarProperty Name="DestinationPoint" ColumnName="DestinationPoint" />
+                <ScalarProperty Name="PointAdress" ColumnName="PointAdress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="Shipper" ColumnName="Shipper" />
                 <ScalarProperty Name="Consignee" ColumnName="Consignee" />
                 <ScalarProperty Name="idRailwayDispatch" ColumnName="idRailwayDispatch" />
@@ -1296,7 +1058,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookCars">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookCars">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookCars">
               <MappingFragment StoreEntitySet="RefBookCars">
                 <ScalarProperty Name="idRefBookCars" ColumnName="idRefBookCars" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1314,7 +1076,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookClient">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookClient">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookClient">
               <MappingFragment StoreEntitySet="RefBookClient">
                 <ScalarProperty Name="idRefBookClient" ColumnName="idRefBookClient" />
                 <ScalarProperty Name="ShortName" ColumnName="ShortName" />
@@ -1336,7 +1098,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookETSNG">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookETSNG">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookETSNG">
               <MappingFragment StoreEntitySet="RefBookETSNG">
                 <ScalarProperty Name="idRefBookETSNG" ColumnName="idRefBookETSNG" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1350,7 +1112,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookGNG">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookGNG">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookGNG">
               <MappingFragment StoreEntitySet="RefBookGNG">
                 <ScalarProperty Name="idRefBookGNG" ColumnName="idRefBookGNG" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1366,7 +1128,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookLand">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookLand">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookLand">
               <MappingFragment StoreEntitySet="RefBookLand">
                 <ScalarProperty Name="idRefBookLand" ColumnName="idRefBookLand" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1379,7 +1141,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookOwner">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookOwner">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookOwner">
               <MappingFragment StoreEntitySet="RefBookOwner">
                 <ScalarProperty Name="idRefBookOwner" ColumnName="idRefBookOwner" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1389,7 +1151,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefBookStations">
-            <EntityTypeMapping TypeName="BTLCModel.RefBookStations">
+            <EntityTypeMapping TypeName="BTLCUpdModel.RefBookStations">
               <MappingFragment StoreEntitySet="RefBookStations">
                 <ScalarProperty Name="idRefBookStation" ColumnName="idRefBookStation" />
                 <ScalarProperty Name="DateDownload" ColumnName="DateDownload" />
@@ -1415,14 +1177,6 @@
                 <ScalarProperty Name="RegName" ColumnName="RegName" />
                 <ScalarProperty Name="OblSity" ColumnName="OblSity" />
                 <ScalarProperty Name="ParagTxt" ColumnName="ParagTxt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TranshipmentMethod">
-            <EntityTypeMapping TypeName="BTLCModel.TranshipmentMethod">
-              <MappingFragment StoreEntitySet="TranshipmentMethod">
-                <ScalarProperty Name="TranshipmentMethod1" ColumnName="TranshipmentMethod" />
-                <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

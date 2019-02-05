@@ -12,7 +12,7 @@ namespace TransportFormASP.Controllers
 {
     public class RailwayDispatchesController : Controller
     {
-        private BTLCEntities db = new BTLCEntities();
+        private BTLC db = new BTLC();
 
         // GET: RailwayDispatches
         public ActionResult Index()

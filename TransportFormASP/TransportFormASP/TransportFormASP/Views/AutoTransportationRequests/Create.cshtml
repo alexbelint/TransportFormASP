@@ -1,14 +1,26 @@
 ﻿@model TransportFormASP.Models.TransportationRequest
+
 @{
-    ViewBag.Title = "Создание заявки";
+    ViewBag.Title = "Create"; //Auto
 }
-<br />
-<form method="post">
+
+@using (Html.BeginForm())
+{
+
     <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Тип перевозки: </p>
+                @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
-                <select class="form-control filter-select" table="4" column="DateMonth1"></select>
+                @*<select class="form-control filter-select" table="4" column="DateMonth1" value="@Model.DateMonth.idDateMonth"></select>*@
+                @Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })
             </div>
         </div>
         <div class="form-group">
@@ -25,13 +37,13 @@
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>GNG: </p>
+                <p>ГНГ: </p>
                 <select class="form-control filter-select" table="0" column="Name"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>ETSNG: </p>
+                <p>ЕТСНГ: </p>
                 <select class="form-control filter-select" table="1" column="Name"></select>
             </div>
         </div>
@@ -86,7 +98,7 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Примечание: </p>
-                <input class="form-control" placeholder="Введите примечание" />
+                <textarea class="form-control" rows="5" placeholder="Введите примечание"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -95,4 +107,14 @@
             </div>
         </div>
     </div>
-</form>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+
+

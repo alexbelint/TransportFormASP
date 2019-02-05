@@ -13,7 +13,7 @@ namespace TransportFormASP.Controllers
 {
     public class RefBookOwnersController : Controller
     {
-        private BTLCEntities db = new BTLCEntities();
+        private BTLC db = new BTLC();
 
         // GET: RefBookOwners
         public ActionResult Index(int? page)

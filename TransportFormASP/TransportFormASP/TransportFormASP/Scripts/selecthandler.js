@@ -31,7 +31,7 @@
         },
         allowClear: true,
         placeholder: 'Введите фильтр',
-        minimumInputLength: 3,
+        minimumInputLength: 2,
         //delay: 1500,
         language: {
             inputTooShort: function (args) {
@@ -76,3 +76,48 @@
         }
     })
 });
+//$(function () {
+//    $('.date-picker').datepicker({
+//        changeMonth: true,
+//        changeYear: true,
+//        showButtonPanel: true,
+//        beforeShow: function (input) {
+//            setTimeout(function () {
+//                var buttonPane = $(input)
+//                    .datepicker("widget")
+//                    .find(".ui-datepicker-buttonpane");
+
+//                $("<button>", {
+//                    text: "Clear",
+//                    click: function () {
+//                        $.datepicker._clearDate(input);
+//                    }
+//                }).appendTo(buttonPane).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+//            }, 1);
+//        },
+//        onChangeMonthYear: function (year, month, instance) {
+//            setTimeout(function () {
+//                var buttonPane = $(instance)
+//                    .datepicker("widget")
+//                    .find(".ui-datepicker-buttonpane");
+
+//                $("<button>", {
+//                    text: "Очистить",
+//                    click: function () {
+//                        $.datepicker._clearDate(instance.input);
+//                    }
+//                }).appendTo(buttonPane).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+//            }, 1);
+//        },
+//        dateFormat: 'MM yy',
+//        onClose: function (dateText, inst) {
+//            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+//        }
+//    });
+//    $.datepicker.regional['rus'] = {
+//        currentText: "Сегодня", 
+//        monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+//        monthNamesShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+//    };
+//    $.datepicker.setDefaults($.datepicker.regional['rus']);
+//});

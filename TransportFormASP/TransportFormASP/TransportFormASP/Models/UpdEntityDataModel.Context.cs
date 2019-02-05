@@ -13,10 +13,10 @@ namespace TransportFormASP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BTLCEntities : DbContext
+    public partial class BTLC : DbContext
     {
-        public BTLCEntities()
-            : base("name=BTLCEntities")
+        public BTLC()
+            : base("name=BTLC")
         {
         }
     
@@ -27,12 +27,9 @@ namespace TransportFormASP.Models
     
         public virtual DbSet<CargoUnitNumber> CargoUnitNumber { get; set; }
         public virtual DbSet<DateMonth> DateMonth { get; set; }
-        public virtual DbSet<DepartuePoint> DepartuePoint { get; set; }
-        public virtual DbSet<DepartuePort> DepartuePort { get; set; }
-        public virtual DbSet<DestinationPoint> DestinationPoint { get; set; }
-        public virtual DbSet<DestinationPort> DestinationPort { get; set; }
         public virtual DbSet<RailwayDispatch> RailwayDispatch { get; set; }
         public virtual DbSet<SpecialCondition> SpecialCondition { get; set; }
+        public virtual DbSet<TranshipmentMethod> TranshipmentMethod { get; set; }
         public virtual DbSet<TransportationRequest> TransportationRequest { get; set; }
         public virtual DbSet<RefBookCars> RefBookCars { get; set; }
         public virtual DbSet<RefBookClient> RefBookClient { get; set; }
@@ -41,6 +38,5 @@ namespace TransportFormASP.Models
         public virtual DbSet<RefBookLand> RefBookLand { get; set; }
         public virtual DbSet<RefBookOwner> RefBookOwner { get; set; }
         public virtual DbSet<RefBookStations> RefBookStations { get; set; }
-        public virtual DbSet<TranshipmentMethod> TranshipmentMethod { get; set; }
     }
 }

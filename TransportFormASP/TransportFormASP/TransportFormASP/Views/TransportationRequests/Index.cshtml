@@ -30,15 +30,6 @@
             @Html.DisplayNameFor(model => model.DateMonth.DateMonth1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepartuePoint.Adress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DestinationPoint.Adress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DestinationPort.PortName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.RailwayDispatch.DispatchType)
         </th>
         <th>
@@ -77,9 +68,6 @@
         <th>
             @Html.DisplayNameFor(model => model.TranshipmentMethod.TranshipmentMethod1)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartuePort1.PortName)
-        </th>
         <th></th>
     </tr>
 
@@ -102,15 +90,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateMonth.DateMonth1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartuePoint.Adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationPoint.Adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationPort.PortName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RailwayDispatch.DispatchType)
@@ -150,9 +129,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TranshipmentMethod.TranshipmentMethod1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartuePort1.PortName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idTransportationRequest }) |

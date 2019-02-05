@@ -157,72 +157,60 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CargoUnitNumber.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DateMonth.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DepartuePoint.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DepartuePort.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DestinationPoint.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DestinationPort.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SelectorFilter.cs" />
     <Compile Include="Models\RailwayDispatch.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookCars.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookClient.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookETSNG.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookGNG.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookLand.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookOwner.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RefBookStations.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpecialCondition.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SelectorTable.cs" />
     <Compile Include="Models\TranshipmentMethod.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransportationRequest.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdEntityDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdEntityDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdEntityDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdEntityDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdEntityDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -279,24 +267,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EntityDataModel.Context.tt">
+    <Content Include="Models\UpdEntityDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-      <LastGenOutput>EntityDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>UpdEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>UpdEntityDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityDataModel.tt">
+    <Content Include="Models\UpdEntityDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-      <LastGenOutput>EntityDataModel.cs</LastGenOutput>
+      <DependentUpon>UpdEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>UpdEntityDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityDataModel.edmx">
+    <EntityDeploy Include="Models\UpdEntityDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>UpdEntityDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityDataModel.edmx.diagram">
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+    <Content Include="Models\UpdEntityDataModel.edmx.diagram">
+      <DependentUpon>UpdEntityDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -389,13 +377,10 @@
     <Content Include="Views\TransportationRequests\Details.cshtml" />
     <Content Include="Views\TransportationRequests\Edit.cshtml" />
     <Content Include="Views\TransportationRequests\Index.cshtml" />
-    <Content Include="Views\AutoTransportationRequests\Create.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Delete.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Details.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Edit.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Index.cshtml" />
-    <Content Include="Views\Select2\Index.cshtml" />
-    <Content Include="Views\Select2\show.cshtml" />
     <Content Include="Views\SpecialConditions\Create.cshtml" />
     <Content Include="Views\SpecialConditions\Delete.cshtml" />
     <Content Include="Views\SpecialConditions\Details.cshtml" />
@@ -426,6 +411,7 @@
     <Content Include="Views\SeaTransportationRequests\Details.cshtml" />
     <Content Include="Views\SeaTransportationRequests\Edit.cshtml" />
     <Content Include="Views\SeaTransportationRequests\Index.cshtml" />
+    <Content Include="Views\AutoTransportationRequests\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,143 @@
+﻿@model TransportFormASP.Models.RefBookClient
+
+@{
+    ViewBag.Title = "Подробности";
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLegal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLegal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorPositionIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorPositionIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorSurnameIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorSurnameIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookerPositionIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookerPositionIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookerSurnameIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookerSurnameIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorSurnameRP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorSurnameRP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorPositionRP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorPositionRP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookLand.LandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookLand.LandId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookLand1.LandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBookLand1.LandId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Править", "Edit", new { id = Model.idRailwayDispatch }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>
