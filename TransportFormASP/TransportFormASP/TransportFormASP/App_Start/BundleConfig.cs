@@ -12,7 +12,11 @@ namespace TransportFormASP
                         "~/Scripts/jquery-3.3.1.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*"
+                       ));
+            bundles.Add(new ScriptBundle("~/bundles/jquery-globalize").Include(
+                        "~/Scripts/globalize.js",
+                        "~/Scripts/i18n/@(System.Threading.Thread.CurrentThread.CurrentCulture.Name).js"));
 
             bundles.Add(new ScriptBundle("~/bundles/select2").Include(
                        "~/Scripts/select2.min.js",
@@ -30,7 +34,7 @@ namespace TransportFormASP
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                        "~/Content/css/select2.min.css",
-                      "~/Content/site.css",
+                       "~/Content/site.css",
                        "~/Content/themes/base/jquery-ui.min.css"));
         }
     }

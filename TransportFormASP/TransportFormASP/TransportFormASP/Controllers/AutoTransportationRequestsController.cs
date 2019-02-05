@@ -31,7 +31,6 @@ namespace TransportFormASP.Controllers
                                                        .Include(t => t.CargoUnitNumber)
                                                        .Include(t => t.SpecialCondition);
 
-
             int pageSize = 16;
             int pageNumber = (page ?? 1);
             return View(transportationRequest.OrderBy(x => x.idTransportationRequest).ToPagedList(pageNumber, pageSize));
@@ -41,14 +40,14 @@ namespace TransportFormASP.Controllers
         {
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
+
             return View();
         }
 
         // POST: AutoTransportationRequests/Create
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
-        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +61,7 @@ namespace TransportFormASP.Controllers
 
             return View(transportationRequest);
         }
+
         // GET: AutoTransportationRequests/Details/5
         public ActionResult Details(Guid? id)
         {

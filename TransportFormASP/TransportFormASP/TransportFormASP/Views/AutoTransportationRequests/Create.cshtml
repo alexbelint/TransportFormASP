@@ -1,10 +1,10 @@
-﻿@model TransportFormASP.Models.TransportationRequest
-
+﻿@using TransportFormASP.Models;
+@model TransportationRequest
 @{
     ViewBag.Title = "Create"; //Auto
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(@*"Create", "AutoTransportationRequests"*@))
 {
 
     <div class="form-horizontal">
@@ -19,14 +19,15 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
-                @*<select class="form-control filter-select" table="4" column="DateMonth1" value="@Model.DateMonth.idDateMonth"></select>*@
-                @Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })
+                @*@Html.DropDownListFor(Model=>Model.DateMonth.idDateMonth, ViewBag.idDateMonth as SelectList, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })*@
+                @*@Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })*@
+                <select class="form-control filter-select" table="4" column="DateMonth1" ></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                <select class="form-control filter-select" table="2" column="LName" ></select>
             </div>
         </div>
         <div class="form-group">
@@ -83,12 +84,12 @@
                 <input class="form-control" placeholder="Введите количество вагонов/контейнеров" />
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             <div class="col-md-10">
                 <p>Номера вагонов(контейнеров): </p>
                 <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
             </div>
-        </div>
+        </div>*@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Особые условия по доставке: </p>

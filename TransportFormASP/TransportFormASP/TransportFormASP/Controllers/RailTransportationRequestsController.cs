@@ -42,6 +42,21 @@ namespace TransportFormASP.Controllers
         {
             return View();
         }
+        // POST: RailTransportationRequests/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                transportationRequest.idTransportationRequest = Guid.NewGuid();
+                db.TransportationRequest.Add(transportationRequest);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(transportationRequest);
+        }
         [HttpPost]
         public ActionResult GetFilteredResult(IEnumerable<SelectorFilter> filters)
         {
@@ -102,21 +117,7 @@ namespace TransportFormASP.Controllers
             }
             return results;
         }
-        // POST: RailTransportationRequests/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
-        {
-            if (ModelState.IsValid)
-            {
-                transportationRequest.idTransportationRequest = Guid.NewGuid();
-                db.TransportationRequest.Add(transportationRequest);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(transportationRequest);
-        }
 
         // GET: RailTransportationRequests/Edit/5
         public ActionResult Edit(Guid? id)

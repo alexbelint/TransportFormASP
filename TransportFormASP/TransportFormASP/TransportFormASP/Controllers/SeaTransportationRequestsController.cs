@@ -38,25 +38,22 @@ namespace TransportFormASP.Controllers
         // GET: SeaTransportationRequests/Create
         public ActionResult Create()
         {
-            //ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1");
-            //ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
-            //ViewBag.idDepartuePoint = new SelectList(db.DepartuePoint, "idDepartuePoint", "Adress");
-            //ViewBag.idDestinationPoint = new SelectList(db.DestinationPoint, "idDestinationPoint", "Adress");
-            //ViewBag.idDestinationPort = new SelectList(db.DestinationPort, "idDestinationPort", "PortName");
-            //ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType");
-            //ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1");
-            //ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId");
-            //ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
-            //ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
-            //ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod");
-            //ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod");
-            //ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId");
-            //ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId");
-            //ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId");
-            //ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
-            //ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
-            //ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
-            //ViewBag.idDepartuePort = new SelectList(db.DepartuePort, "idDepartuePort", "PortName");
+            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1");
+            ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
+
+            ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType");
+            ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1");
+            ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId");
+            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
+            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
+            ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod");
+            ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod");
+            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId");
+            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId");
+            ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId");
+            ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
+            ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod");
+            ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
             return View();
         }
 

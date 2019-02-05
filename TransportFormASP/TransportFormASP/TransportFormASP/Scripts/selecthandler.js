@@ -2,7 +2,8 @@
     var selects = $('.filter-select').select2({
         ajax: {
             type: 'POST',
-            url: '/RailTransportationRequests/GetFilteredResult',
+            //url: '/RailTransportationRequests/GetFilteredResult',
+            url: '/Test/GetFilteredResult',
             processResults: function (data) {
                 return {
                     results: $.map(data, function (item) {
