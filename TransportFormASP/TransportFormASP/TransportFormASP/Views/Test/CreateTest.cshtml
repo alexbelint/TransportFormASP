@@ -25,32 +25,25 @@
             <div class="col-md-10">
                 <p>Страна отправления: </p>
                 @*@Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control filter-select", table = "2", column = "LName", name = "idRefBookLand" })*@
-                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLandFrom"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
                 @*@Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control" })*@
-                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLandTo"></select>
             </div>
         </div>
-
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="submit" value="Сохранить" class="btn btn-success" />
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
         </div>
     </div>
-
 }
+
 
 <div>
     @Html.ActionLink("Назад к списку", "Index")
 </div>
-
-
-
-
-
-

@@ -28,7 +28,7 @@
                             <li>@Html.ActionLink("Автомобильные перевозки", "Index", "AutoTransportationRequests")</li>
                             <li>@Html.ActionLink("Железнодорожные перевозки", "Index", "RailTransportationRequests")</li>
                             <li>@Html.ActionLink("Морские перевозки", "Index", "SeaTransportationRequests")</li>
-                            @*<li>@Html.ActionLink("test", "IndexTest", "Test")</li>*@
+                            <li>@Html.ActionLink("test", "IndexTest", "Test")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -53,6 +53,8 @@
         </footer>
     </div>
 
+
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
     @Scripts.Render("~/bundles/jquery-globalize")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/select2")

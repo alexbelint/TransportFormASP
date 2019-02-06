@@ -21,7 +21,7 @@ namespace TransportFormASP.Models
         [Display(Name = "Код страны")]
         public string LandId { get; set; }
         [Display(Name = "Страна")]
-        public string LName { get; set; }
+        public string LName { get; set; } //название страны
         public string RName { get; set; }
         public string Land_Int { get; set; }
         public string Land_OSJD { get; set; }

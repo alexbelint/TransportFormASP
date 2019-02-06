@@ -22,7 +22,7 @@ namespace TransportFormASP.Models
         public Nullable<System.Guid> RefBookStationTo { get; set; }
         [Display(Name = "Пункт отправления")]
         public string DepartuePoint { get; set; }
-        [Display(Name = "Пункт назначчения")]
+        [Display(Name = "Пункт назначения")]
         public string DestinationPoint { get; set; }
         public string PointAdress { get; set; }
         public string ContactName { get; set; }
