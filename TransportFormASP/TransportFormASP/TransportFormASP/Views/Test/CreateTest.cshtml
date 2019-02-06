@@ -15,101 +15,42 @@
                 @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
-                @*@Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })*@
                 <select class="form-control filter-select" table="4" column="DateMonth1" name="idDateMonth"></select>
-
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                @*@Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control filter-select", table = "2", column = "LName", name = "idRefBookLand" })*@
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                @*@Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control" })*@
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>ГНГ: </p>
-                <select class="form-control filter-select" table="0" column="Name"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>ЕТСНГ: </p>
-                <select class="form-control filter-select" table="1" column="Name"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Пункт отправления: </p>
-                <input class="form-control" placeholder="Введите пункт отправления" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Пункт назначения: </p>
-                <input class="form-control" placeholder="Введите пункт назначения" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Грузоотправитель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Грузополучатель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Вес груза: </p>
-                <input class="form-control" placeholder="Введите вес перевозимого груза" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Объем, количество (вагонов/контейнеров): </p>
-                <input class="form-control" placeholder="Введите количество вагонов/контейнеров" />
-            </div>
-        </div>
-        @*<div class="form-group">
-                <div class="col-md-10">
-                    <p>Номера вагонов(контейнеров): </p>
-                    <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
-                </div>
-            </div>*@
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Особые условия по доставке: </p>
-                <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Примечание: </p>
-                <textarea class="form-control" rows="5" placeholder="Введите примечание"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Сохранить" class="btn btn-success" />
-            </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-success" />
         </div>
     </div>
+
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад к списку", "Index")
 </div>
+
+
+
+
+
+

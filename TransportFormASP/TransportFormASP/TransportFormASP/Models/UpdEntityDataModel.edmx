@@ -57,7 +57,7 @@
           <Property Name="idRailwayDispatch" Type="uniqueidentifier" />
           <Property Name="idRefBookCars" Type="uniqueidentifier" />
           <Property Name="idRefBookOwner" Type="uniqueidentifier" />
-          <Property Name="Weight" Type="float" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="50" />
           <Property Name="CargoUnitAmmount" Type="int" />
           <Property Name="CargoUnitNumber" Type="nvarchar" MaxLength="250" />
           <Property Name="idSpecialCondition" Type="uniqueidentifier" />
@@ -493,7 +493,7 @@
           <Property Name="idRailwayDispatch" Type="Guid" />
           <Property Name="idRefBookCars" Type="Guid" />
           <Property Name="idRefBookOwner" Type="Guid" />
-          <Property Name="Weight" Type="Double" />
+          <Property Name="Weight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CargoUnitAmmount" Type="Int32" />
           <Property Name="idSpecialCondition" Type="Guid" />
           <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />

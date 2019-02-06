@@ -15,7 +15,6 @@
                 @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
@@ -25,13 +24,15 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand" ></select>
+                @Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control filter-select", table = "2" , column = "LName", name = "idRefBookLand" })
+                @*<select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>*@
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
-                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
+                @Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control" })
+                @*<select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>*@
             </div>
         </div>
         <div class="form-group">
@@ -55,37 +56,27 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Пункт назначения: </p>
-                @Html.EditorFor(model => model.DepartuePoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите пункт назначения" } })
+                @Html.EditorFor(model => model.DestinationPoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите пункт назначения" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузоотправитель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>
+                @Html.DropDownList("Shipper", null, htmlAttributes: new { @class = "form-control" })
+                @*<select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>*@
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузополучатель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>
+                @Html.DropDownList("Consignee", null, htmlAttributes: new { @class = "form-control" })
+                @*<select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>*@
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Вес груза: </p>
                 @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите вес перевозимого груза" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Объем, количество (вагонов/контейнеров): </p>
-                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите количество вагонов/контейнеров" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Номера вагонов(контейнеров): </p>
-                @Html.EditorFor(model => model.CargoUnitNumber1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Номера вагонов(контейнеров)" } })
             </div>
         </div>
         <div class="form-group">
@@ -97,7 +88,6 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Примечание: </p>
-                @*<textarea class="form-control" rows="5" placeholder="Введите примечание"></textarea>*@
                 @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите примечание" } })
             </div>
         </div>
@@ -110,7 +100,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад к списку", "Index")
 </div>
 
 

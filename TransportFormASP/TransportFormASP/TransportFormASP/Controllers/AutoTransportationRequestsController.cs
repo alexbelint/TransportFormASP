@@ -38,14 +38,18 @@ namespace TransportFormASP.Controllers
         public ActionResult Create()
         {
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
-
+            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LName");
+            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LName");
+            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
+            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
             return View();
         }
 
         // POST: AutoTransportationRequests/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+
+        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,DepartuePoint,DestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +59,10 @@ namespace TransportFormASP.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-
+            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LName", transportationRequest.idRefBookLandFrom);
+            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LName", transportationRequest.idRefBookLandTo);
+            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
+            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
             return View(transportationRequest);
         }
 
@@ -103,7 +110,7 @@ namespace TransportFormASP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult Edit([Bind(Include = "idTransportationRequest, idDateMonth, idRefBookLandFrom, idRefBookLandTo, idRefBookETSNG, idRefBookGNG, DeliveryType, DepartuePoint, DestinationPoint, Shipper, Consignee, Weight, CargoUnitAmmount, idCargoUnitNumber, idSpecialCondition, Note, idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {
