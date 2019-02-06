@@ -17,8 +17,7 @@ namespace TransportFormASP.Controllers
         // GET: TransportationRequests
         public ActionResult Index()
         {
-            var transportationRequest = db.TransportationRequest.Include(t => t.CargoUnitNumber)
-                .Include(t => t.DateMonth)
+            var transportationRequest = db.TransportationRequest.Include(t => t.DateMonth)
                 .Include(t => t.RailwayDispatch)
                 .Include(t => t.SpecialCondition)
                 .Include(t => t.RefBookCars)
@@ -53,7 +52,6 @@ namespace TransportFormASP.Controllers
         // GET: TransportationRequests/Create
         public ActionResult Create()
         {
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1");
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType");
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1");
@@ -85,8 +83,6 @@ namespace TransportFormASP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
@@ -116,7 +112,6 @@ namespace TransportFormASP.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
@@ -148,7 +143,7 @@ namespace TransportFormASP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
+         
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);

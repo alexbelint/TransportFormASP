@@ -4,14 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BTLCUpdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="CargoUnitNumber">
-          <Key>
-            <PropertyRef Name="idCargoUnitNumber" />
-          </Key>
-          <Property Name="idCargoUnitNumber" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CargoUnitNumber" Type="nvarchar" MaxLength="25" />
-        </EntityType>
+    <Schema Namespace="BTLCUpdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DateMonth">
           <Key>
             <PropertyRef Name="idDateMonth" />
@@ -66,7 +59,7 @@
           <Property Name="idRefBookOwner" Type="uniqueidentifier" />
           <Property Name="Weight" Type="float" />
           <Property Name="CargoUnitAmmount" Type="int" />
-          <Property Name="idCargoUnitNumber" Type="uniqueidentifier" />
+          <Property Name="CargoUnitNumber" Type="nvarchar" MaxLength="250" />
           <Property Name="idSpecialCondition" Type="uniqueidentifier" />
           <Property Name="Note" Type="nvarchar" MaxLength="250" />
         </EntityType>
@@ -210,18 +203,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransportationRequest_CargoUnitNumber">
-          <End Role="CargoUnitNumber" Type="Self.CargoUnitNumber" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CargoUnitNumber">
-              <PropertyRef Name="idCargoUnitNumber" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idCargoUnitNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransportationRequest_DateMonth">
           <End Role="DateMonth" Type="Self.DateMonth" Multiplicity="0..1" />
           <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
@@ -243,18 +224,6 @@
             </Principal>
             <Dependent Role="TransportationRequest">
               <PropertyRef Name="idRailwayDispatch" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransportationRequest_RefBookCars">
-          <End Role="RefBookCars" Type="Self.RefBookCars" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefBookCars">
-              <PropertyRef Name="idRefBookCars" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idRefBookCars" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -391,7 +360,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BTLCUpdModelStoreContainer">
-          <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DateMonth" EntityType="Self.DateMonth" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" Schema="dbo" store:Type="Tables" />
@@ -412,20 +380,12 @@
             <End Role="RefBookLand" EntitySet="RefBookLand" />
             <End Role="RefBookClient" EntitySet="RefBookClient" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_CargoUnitNumber" Association="Self.FK_TransportationRequest_CargoUnitNumber">
-            <End Role="CargoUnitNumber" EntitySet="CargoUnitNumber" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_DateMonth" Association="Self.FK_TransportationRequest_DateMonth">
             <End Role="DateMonth" EntitySet="DateMonth" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_RailwayDispatch" Association="Self.FK_TransportationRequest_RailwayDispatch">
             <End Role="RailwayDispatch" EntitySet="RailwayDispatch" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportationRequest_RefBookCars" Association="Self.FK_TransportationRequest_RefBookCars">
-            <End Role="RefBookCars" EntitySet="RefBookCars" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_RefBookClient" Association="Self.FK_TransportationRequest_RefBookClient">
@@ -473,19 +433,10 @@
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BTLCUpdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CargoUnitNumber">
-          <Key>
-            <PropertyRef Name="idCargoUnitNumber" />
-          </Key>
-          <Property Name="idCargoUnitNumber" Type="Guid" Nullable="false" />
-          <Property Name="CargoUnitNumber1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_CargoUnitNumber" FromRole="CargoUnitNumber" ToRole="TransportationRequest" />
-        </EntityType>
         <EntityType Name="DateMonth">
           <Key>
             <PropertyRef Name="idDateMonth" />
@@ -544,10 +495,8 @@
           <Property Name="idRefBookOwner" Type="Guid" />
           <Property Name="Weight" Type="Double" />
           <Property Name="CargoUnitAmmount" Type="Int32" />
-          <Property Name="idCargoUnitNumber" Type="Guid" />
           <Property Name="idSpecialCondition" Type="Guid" />
           <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CargoUnitNumber" Relationship="Self.FK_TransportationRequest_CargoUnitNumber" FromRole="TransportationRequest" ToRole="CargoUnitNumber" />
           <NavigationProperty Name="DateMonth" Relationship="Self.FK_TransportationRequest_DateMonth" FromRole="TransportationRequest" ToRole="DateMonth" />
           <NavigationProperty Name="RailwayDispatch" Relationship="Self.FK_TransportationRequest_RailwayDispatch" FromRole="TransportationRequest" ToRole="RailwayDispatch" />
           <NavigationProperty Name="SpecialCondition" Relationship="Self.FK_TransportationRequest_SpecialCondition" FromRole="TransportationRequest" ToRole="SpecialCondition" />
@@ -562,6 +511,7 @@
           <NavigationProperty Name="RefBookOwner" Relationship="Self.FK_TransportationRequest_RefBookOwner" FromRole="TransportationRequest" ToRole="RefBookOwner" />
           <NavigationProperty Name="RefBookStations" Relationship="Self.FK_TransportationRequest_RefBookStations" FromRole="TransportationRequest" ToRole="RefBookStations" />
           <NavigationProperty Name="RefBookStations1" Relationship="Self.FK_TransportationRequest_RefBookStations1" FromRole="TransportationRequest" ToRole="RefBookStations" />
+          <Property Name="CargoUnitNumber1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RefBookCars">
           <Key>
@@ -693,18 +643,6 @@
           <NavigationProperty Name="TransportationRequest" Relationship="Self.FK_TransportationRequest_RefBookStations" FromRole="RefBookStations" ToRole="TransportationRequest" />
           <NavigationProperty Name="TransportationRequest1" Relationship="Self.FK_TransportationRequest_RefBookStations1" FromRole="RefBookStations" ToRole="TransportationRequest" />
         </EntityType>
-        <Association Name="FK_TransportationRequest_CargoUnitNumber">
-          <End Role="CargoUnitNumber" Type="Self.CargoUnitNumber" Multiplicity="0..1" />
-          <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CargoUnitNumber">
-              <PropertyRef Name="idCargoUnitNumber" />
-            </Principal>
-            <Dependent Role="TransportationRequest">
-              <PropertyRef Name="idCargoUnitNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransportationRequest_DateMonth">
           <End Role="DateMonth" Type="Self.DateMonth" Multiplicity="0..1" />
           <End Role="TransportationRequest" Type="Self.TransportationRequest" Multiplicity="*" />
@@ -898,7 +836,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BTLC" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CargoUnitNumber" EntityType="Self.CargoUnitNumber" />
           <EntitySet Name="DateMonth" EntityType="Self.DateMonth" />
           <EntitySet Name="RailwayDispatch" EntityType="Self.RailwayDispatch" />
           <EntitySet Name="SpecialCondition" EntityType="Self.SpecialCondition" />
@@ -911,10 +848,6 @@
           <EntitySet Name="RefBookLand" EntityType="Self.RefBookLand" />
           <EntitySet Name="RefBookOwner" EntityType="Self.RefBookOwner" />
           <EntitySet Name="RefBookStations" EntityType="Self.RefBookStations" />
-          <AssociationSet Name="FK_TransportationRequest_CargoUnitNumber" Association="Self.FK_TransportationRequest_CargoUnitNumber">
-            <End Role="CargoUnitNumber" EntitySet="CargoUnitNumber" />
-            <End Role="TransportationRequest" EntitySet="TransportationRequest" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransportationRequest_DateMonth" Association="Self.FK_TransportationRequest_DateMonth">
             <End Role="DateMonth" EntitySet="DateMonth" />
             <End Role="TransportationRequest" EntitySet="TransportationRequest" />
@@ -986,14 +919,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BTLCUpdModelStoreContainer" CdmEntityContainer="BTLC">
-          <EntitySetMapping Name="CargoUnitNumber">
-            <EntityTypeMapping TypeName="BTLCUpdModel.CargoUnitNumber">
-              <MappingFragment StoreEntitySet="CargoUnitNumber">
-                <ScalarProperty Name="idCargoUnitNumber" ColumnName="idCargoUnitNumber" />
-                <ScalarProperty Name="CargoUnitNumber1" ColumnName="CargoUnitNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DateMonth">
             <EntityTypeMapping TypeName="BTLCUpdModel.DateMonth">
               <MappingFragment StoreEntitySet="DateMonth">
@@ -1029,6 +954,7 @@
           <EntitySetMapping Name="TransportationRequest">
             <EntityTypeMapping TypeName="BTLCUpdModel.TransportationRequest">
               <MappingFragment StoreEntitySet="TransportationRequest">
+                <ScalarProperty Name="CargoUnitNumber1" ColumnName="CargoUnitNumber" />
                 <ScalarProperty Name="idTransportationRequest" ColumnName="idTransportationRequest" />
                 <ScalarProperty Name="idTranshipmentMethod" ColumnName="idTranshipmentMethod" />
                 <ScalarProperty Name="idDateMonth" ColumnName="idDateMonth" />
@@ -1051,7 +977,6 @@
                 <ScalarProperty Name="idRefBookOwner" ColumnName="idRefBookOwner" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="CargoUnitAmmount" ColumnName="CargoUnitAmmount" />
-                <ScalarProperty Name="idCargoUnitNumber" ColumnName="idCargoUnitNumber" />
                 <ScalarProperty Name="idSpecialCondition" ColumnName="idSpecialCondition" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
               </MappingFragment>

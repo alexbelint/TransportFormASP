@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8e3be9ba4b7540abb9704b1f6418b386" Name="Diagram1">
-        <EntityTypeShape EntityType="BTLCUpdModel.CargoUnitNumber" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BTLCUpdModel.DateMonth" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BTLCUpdModel.RailwayDispatch" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BTLCUpdModel.SpecialCondition" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
@@ -18,7 +17,6 @@
         <EntityTypeShape EntityType="BTLCUpdModel.RefBookLand" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BTLCUpdModel.RefBookOwner" Width="1.5" PointX="3" PointY="42.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BTLCUpdModel.RefBookStations" Width="1.5" PointX="3" PointY="45.375" IsExpanded="true" />
-        <AssociationConnector Association="BTLCUpdModel.FK_TransportationRequest_CargoUnitNumber" ManuallyRouted="false" />
         <AssociationConnector Association="BTLCUpdModel.FK_TransportationRequest_DateMonth" ManuallyRouted="false" />
         <AssociationConnector Association="BTLCUpdModel.FK_TransportationRequest_RailwayDispatch" ManuallyRouted="false" />
         <AssociationConnector Association="BTLCUpdModel.FK_TransportationRequest_SpecialCondition" ManuallyRouted="false" />

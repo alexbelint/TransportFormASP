@@ -25,7 +25,6 @@ namespace TransportFormASP.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CargoUnitNumber> CargoUnitNumber { get; set; }
         public virtual DbSet<DateMonth> DateMonth { get; set; }
         public virtual DbSet<RailwayDispatch> RailwayDispatch { get; set; }
         public virtual DbSet<SpecialCondition> SpecialCondition { get; set; }

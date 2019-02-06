@@ -4,7 +4,7 @@
     ViewBag.Title = "Create"; //Auto
 }
 
-@using (Html.BeginForm(@*"Create", "AutoTransportationRequests"*@))
+@using (Html.BeginForm())
 {
 
     <div class="form-horizontal">
@@ -19,87 +19,86 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
-                @*@Html.DropDownListFor(Model=>Model.DateMonth.idDateMonth, ViewBag.idDateMonth as SelectList, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })*@
-                @*@Html.DropDownList("idDateMonth", null, htmlAttributes: new { @class = "form-control filter-select", @table = "4", @column = "DateMonth1" })*@
-                <select class="form-control filter-select" table="4" column="DateMonth1" ></select>
+                <select class="form-control filter-select" table="4" column="DateMonth1" name="idDateMonth"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                <select class="form-control filter-select" table="2" column="LName" ></select>
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand" ></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                <select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>ГНГ: </p>
-                <select class="form-control filter-select" table="0" column="Name"></select>
+                <select class="form-control filter-select" table="0" column="Name" name="idRefBookGNG"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>ЕТСНГ: </p>
-                <select class="form-control filter-select" table="1" column="Name"></select>
+                <select class="form-control filter-select" table="1" column="Name" name="idRefBookETSNG"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Пункт отправления: </p>
-                <input class="form-control" placeholder="Введите пункт отправления" />
+                @Html.EditorFor(model => model.DepartuePoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите пункт отправления" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Пункт назначения: </p>
-                <input class="form-control" placeholder="Введите пункт назначения" />
+                @Html.EditorFor(model => model.DepartuePoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите пункт назначения" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузоотправитель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
+                <select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузополучатель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
+                <select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Вес груза: </p>
-                <input class="form-control" placeholder="Введите вес перевозимого груза" />
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите вес перевозимого груза" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Объем, количество (вагонов/контейнеров): </p>
-                <input class="form-control" placeholder="Введите количество вагонов/контейнеров" />
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите количество вагонов/контейнеров" } })
             </div>
         </div>
-        @*<div class="form-group">
+        <div class="form-group">
             <div class="col-md-10">
                 <p>Номера вагонов(контейнеров): </p>
-                <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
+                @Html.EditorFor(model => model.CargoUnitNumber1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Номера вагонов(контейнеров)" } })
             </div>
-        </div>*@
+        </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Особые условия по доставке: </p>
-                <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
+                <select class="form-control filter-select" table="6" column="SpecialCondition1" name="idSpecialCondition"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Примечание: </p>
-                <textarea class="form-control" rows="5" placeholder="Введите примечание"></textarea>
+                @*<textarea class="form-control" rows="5" placeholder="Введите примечание"></textarea>*@
+                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите примечание" } })
             </div>
         </div>
         <div class="form-group">

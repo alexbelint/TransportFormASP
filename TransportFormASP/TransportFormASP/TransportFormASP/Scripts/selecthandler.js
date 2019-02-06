@@ -2,14 +2,14 @@
     var selects = $('.filter-select').select2({
         ajax: {
             type: 'POST',
-            //url: '/RailTransportationRequests/GetFilteredResult',
-            url: '/Test/GetFilteredResult',
+            url: '/Select2/GetFilteredResult',
+            //url: '/Test/GetFilteredResult',
             processResults: function (data) {
                 return {
                     results: $.map(data, function (item) {
                         return {
                             text: item.value,
-                            id: item.value
+                            id: item.key
                         }
                     })
                 };
@@ -24,7 +24,8 @@
                     existingFilter.value = params.term;
                     existingFilter.editing = true;
                 } else {
-                    params.filters.push({ column: $(this).attr('column'), value: params.term, editing: true, table: $(this).attr('table') });
+                    //params.filters.push({ column: $(this).attr('column'), value: params.term, editing: true, table: $(this).attr('table') });
+                    params.filters.push({ column: $(this).attr('column'), value: params.term, name: $(this).attr('name'), editing: true, table: $(this).attr('table') });
                 }
                 return { filters: params.filters };
             },

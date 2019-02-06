@@ -157,9 +157,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CargoUnitNumber.cs">
-      <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DateMonth.cs">
       <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>

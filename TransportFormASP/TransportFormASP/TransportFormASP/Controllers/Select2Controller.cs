@@ -12,33 +12,16 @@ namespace TransportFormASP.Controllers
 
     {
         private BTLC db = new BTLC();
-        public ActionResult Index()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Index([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idTranshipmentMethod,idRefBookGNG,idRefBookETSNG")] TransportationRequest transportationRequest)
-        {
-            if (ModelState.IsValid)
-            {
-                transportationRequest.idTransportationRequest = Guid.NewGuid();
-                db.TransportationRequest.Add(transportationRequest);
-                db.SaveChanges();
-                return RedirectToAction("show");
-            }
-          
-            return View(transportationRequest);
-        }
         [HttpPost]
         public ActionResult GetFilteredResult(IEnumerable<SelectorFilter> filters)
         {
             var results = GetFilteredQueryable(filters);
-            var response = results.Select($"new ({filters.Single(x => x.Editing).Column} as value)").Distinct();
+            var response = results.Select($"new ({filters.Single(x => x.Editing).Column} as value, {filters.Single(x => x.Editing).Name} as key)").Distinct();
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
         private IQueryable GetFilteredQueryable(IEnumerable<SelectorFilter> filters)
-        {        
+        {
             SelectorTable table = filters.Single(x => x.Editing).Table.Value;
             IQueryable results;
             switch (table)
@@ -64,6 +47,15 @@ namespace TransportFormASP.Controllers
                 case SelectorTable.SpecialCondition:
                     results = db.SpecialCondition.AsQueryable();
                     break;
+                case SelectorTable.RailwayDispatch:
+                    results = db.RailwayDispatch.AsQueryable();
+                    break;
+                case SelectorTable.RefBookCars:
+                    results = db.RefBookCars.AsQueryable();
+                    break;
+                case SelectorTable.RefBookOwner:
+                    results = db.RefBookOwner.AsQueryable();
+                    break;
                 default:
                     results = null;
                     break;
@@ -77,5 +69,35 @@ namespace TransportFormASP.Controllers
             }
             return results;
         }
+        // GET: Test
+        public ActionResult IndexTest()
+        {
+            return View();
+        }
+
+
+        // GET: Test/Create
+        public ActionResult CreateTest()
+        {
+            ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
+            return View();
+        }
+
+        // POST: Test/Create
+        [HttpPost]
+        public ActionResult CreateTest([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                transportationRequest.idTransportationRequest = Guid.NewGuid();
+                db.TransportationRequest.Add(transportationRequest);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
+
+            return View(transportationRequest);
+        }
+
     }
 }

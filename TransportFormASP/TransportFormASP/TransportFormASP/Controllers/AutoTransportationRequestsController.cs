@@ -28,7 +28,6 @@ namespace TransportFormASP.Controllers
                                                        .Include(t => t.RefBookGNG)
                                                        .Include(t => t.RefBookClient)
                                                        .Include(t => t.RefBookClient1)
-                                                       .Include(t => t.CargoUnitNumber)
                                                        .Include(t => t.SpecialCondition);
 
             int pageSize = 16;
@@ -39,7 +38,6 @@ namespace TransportFormASP.Controllers
         public ActionResult Create()
         {
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
-            ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1");
 
             return View();
         }
@@ -57,7 +55,6 @@ namespace TransportFormASP.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-            ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
 
             return View(transportationRequest);
         }
@@ -96,7 +93,6 @@ namespace TransportFormASP.Controllers
             ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Name", transportationRequest.idRefBookGNG);
             ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
             ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
 
             return View(transportationRequest);
@@ -123,7 +119,6 @@ namespace TransportFormASP.Controllers
             ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Name", transportationRequest.idRefBookGNG);
             ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
             ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
             return View(transportationRequest);
         }

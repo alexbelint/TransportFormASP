@@ -19,7 +19,7 @@ namespace TransportFormASP.Controllers
         public ActionResult GetFilteredResult(IEnumerable<SelectorFilter> filters)
         {
             var results = GetFilteredQueryable(filters);
-            var response = results.Select($"new ({filters.Single(x => x.Editing).Column} as value)").Distinct();
+            var response = results.Select($"new ({filters.Single(x => x.Editing).Column} as value, {filters.Single(x => x.Editing).Name} as key)").Distinct();
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
@@ -60,8 +60,6 @@ namespace TransportFormASP.Controllers
                     results = db.RefBookOwner.AsQueryable();
                     break;
                 case SelectorTable.CargoUnitNumbers:
-                    results = db.CargoUnitNumber.AsQueryable();
-                    break;
                 default:
                     results = null;
                     break;

@@ -27,7 +27,6 @@ namespace TransportFormASP.Controllers
                                                        .Include(t => t.RefBookGNG)
                                                        .Include(t => t.RefBookClient)
                                                        .Include(t => t.RefBookClient1)
-                                                       .Include(t => t.CargoUnitNumber)
                                                        .Include(t => t.SpecialCondition);
 
 
@@ -101,9 +100,6 @@ namespace TransportFormASP.Controllers
                 case SelectorTable.RefBookOwner:
                     results = db.RefBookOwner.AsQueryable();
                     break;
-                case SelectorTable.CargoUnitNumbers:
-                    results = db.CargoUnitNumber.AsQueryable();
-                    break;
                 default:
                     results = null;
                     break;
@@ -131,7 +127,6 @@ namespace TransportFormASP.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
@@ -163,7 +158,6 @@ namespace TransportFormASP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idCargoUnitNumber = new SelectList(db.CargoUnitNumber, "idCargoUnitNumber", "CargoUnitNumber1", transportationRequest.idCargoUnitNumber);
             ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
             ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
             ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
