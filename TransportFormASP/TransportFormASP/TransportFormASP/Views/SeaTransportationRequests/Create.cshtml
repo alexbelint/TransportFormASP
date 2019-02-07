@@ -1,94 +1,102 @@
-﻿@model TransportFormASP.Models.TransportationRequest
+﻿@using TransportFormASP.Models;
+@model TransportationRequest
 @{
-    ViewBag.Title = "Создание заявки";
+    ViewBag.Title = "Создать заявку"; //Sea
 }
-<br />
-<form method="post">
+
+@using (Html.BeginForm())
+{
+
     <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Тип перевозки: </p>
+                @Html.DropDownList("idTranshipmentMethod", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Период перевозки: </p>
-                <select class="form-control filter-select" table="4" column="DateMonth1"></select>
+                <select class="form-control filter-select" table="4" column="DateMonth1" name="idDateMonth"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                <select class="form-control filter-select" table="2" column="LName" key-name="idRefBookLand" name="idRefBookLandFrom"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
-                <select class="form-control filter-select" table="2" column="LName"></select>
+                <select class="form-control filter-select" table="2" column="LName" key-name="idRefBookLand" name="idRefBookLandTo"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>GNG: </p>
-                <select class="form-control filter-select" table="0" column="Name"></select>
+                <p>ГНГ: </p>
+                <select class="form-control filter-select" table="0" column="Name" name="idRefBookGNG"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>ETSNG: </p>
-                <select class="form-control filter-select" table="1" column="Name"></select>
+                <p>ЕТСНГ: </p>
+                <select class="form-control filter-select" table="1" column="Name" name="idRefBookETSNG"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>Порт отправления: </p>
-                <input class="form-control" placeholder="Введите порт отправления" />
+                <p>Пункт отправления: </p>
+                @Html.EditorFor(model => model.DepartuePoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Адрес, контактное лицо, телефон" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>Порт назначения: </p>
-                <input class="form-control" placeholder="Введите порт назначения" />
+                <p>Пункт назначения: </p>
+                @Html.EditorFor(model => model.DestinationPoint, new { htmlAttributes = new { @class = "form-control", @placeholder = "Адрес, контактное лицо, телефон" } })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузоотправитель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
+                <select class="form-control filter-select" table="5" column="ShortName" key-name="idRefBookClient" name="Shipper"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузополучатель: </p>
-                <select class="form-control filter-select" table="5" column="ShortName"></select>
+                <select class="form-control filter-select" table="5" column="ShortName" key-name="idRefBookClient" name="Consignee"></select>
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-10">
                 <p>Вес груза: </p>
-                <input class="form-control" placeholder="Укажите вес перевозимого груза" />
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите вес перевозимого груза" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>Объем, количество: </p>
-                <input class="form-control" placeholder="Укажите количество вагонов/контейнеров" />
+                <p>Объем, количество контейнеров: </p>
+                @Html.EditorFor(model => model.CargoUnitAmmount, new { htmlAttributes = new { @class = "form-control", @placeholder = "Укажите количество контейнеров" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <p>Номера вагонов/контейнеров: </p>
-                <select class="form-control filter-select" table="10" column="CargoUnitNumber1"></select>
+                <p>Номера контейнеров: </p>
+                @Html.EditorFor(model => model.CargoUnitNumber1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Укажите номера контейнеров" } })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Особые условия по доставке: </p>
-                <select class="form-control filter-select" table="6" column="SpecialCondition1"></select>
+                <select class="form-control filter-select" table="6" column="SpecialCondition1" name="idSpecialCondition"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Примечание: </p>
-                <input class="form-control" placeholder="Введите примечание" />
+                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите примечание" } })
             </div>
         </div>
         <div class="form-group">
@@ -97,4 +105,14 @@
             </div>
         </div>
     </div>
-</form>
+}
+
+<div>
+    @Html.ActionLink("Назад к списку", "Index")
+</div>
+
+
+
+
+
+

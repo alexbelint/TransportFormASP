@@ -385,10 +385,6 @@
     <Content Include="Views\RefBookStations\Details.cshtml" />
     <Content Include="Views\RefBookStations\Edit.cshtml" />
     <Content Include="Views\RefBookStations\Index.cshtml" />
-    <Content Include="Views\TransportationRequests\Create.cshtml" />
-    <Content Include="Views\TransportationRequests\Delete.cshtml" />
-    <Content Include="Views\TransportationRequests\Details.cshtml" />
-    <Content Include="Views\TransportationRequests\Edit.cshtml" />
     <Content Include="Views\TransportationRequests\Index.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Delete.cshtml" />
     <Content Include="Views\AutoTransportationRequests\Details.cshtml" />

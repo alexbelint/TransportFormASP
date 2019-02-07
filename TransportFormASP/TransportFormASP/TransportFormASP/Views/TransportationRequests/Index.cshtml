@@ -1,141 +1,129 @@
-﻿@model IEnumerable<TransportFormASP.Models.TransportationRequest>
+﻿@model PagedList.IPagedList<TransportFormASP.Models.TransportationRequest>
+@using PagedList.Mvc
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Железнодорожные перевозки";
 }
+<br />
+<h4>Все заявки.</h4>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<br />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DeliveryType)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].DateMonth.DateMonth1).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Weight)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].idRefBookLandFrom).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CargoUnitAmmount)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].idRefBookLandTo).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Note)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].RefBookGNG.Kod).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CargoUnitNumber1)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].RefBookETSNG.Kod).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateMonth.DateMonth1)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].RefBookStationFrom).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RailwayDispatch.DispatchType)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].RefBookStationTo).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SpecialCondition.SpecialCondition1)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Shipper).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookCars.CarId)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Consignee).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookClient.ShortName)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].idRailwayDispatch).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookClient1.ShortName)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].idRefBookCars).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookETSNG.Kod)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].idRefBookOwner).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookGNG.Kod)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Weight).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookLand.LandId)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].CargoUnitAmmount).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookLand1.LandId)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].CargoUnitNumber1).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookOwner.OwnerId)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].SpecialCondition.SpecialCondition1).ToHtmlString(), "Index")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RefBookStations.Kod)
+            @Html.ActionLink(Html.DisplayNameFor(model => Model[0].Note).ToHtmlString(), "Index")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RefBookStations1.Kod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TranshipmentMethod.TranshipmentMethod1)
-        </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CargoUnitAmmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CargoUnitNumber1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateMonth.DateMonth1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RailwayDispatch.DispatchType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SpecialCondition.SpecialCondition1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookCars.CarId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookClient.ShortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookClient1.ShortName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookETSNG.Kod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookGNG.Kod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookLand.LandId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookLand1.LandId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookOwner.OwnerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookStations.Kod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RefBookStations1.Kod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TranshipmentMethod.TranshipmentMethod1)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idTransportationRequest }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idTransportationRequest }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idTransportationRequest })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateMonth.DateMonth1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookLand.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookLand1.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookGNG.Kod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookETSNG.Kod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookStations.NewName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookStations.NewName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookClient.ShortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookClient1.ShortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RailwayDispatch.DispatchType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookCars.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBookOwner.OwnerDsc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargoUnitAmmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargoUnitNumber1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialCondition.SpecialCondition1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+        </tr>
+    }
 
 </table>
+<div>
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
