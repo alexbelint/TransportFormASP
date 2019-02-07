@@ -9,7 +9,6 @@ using System.Linq.Dynamic;
 namespace TransportFormASP.Controllers
 {
     public class Select2Controller : Controller
-
     {
         private BTLC db = new BTLC();
         [HttpPost]
@@ -56,6 +55,7 @@ namespace TransportFormASP.Controllers
                 case SelectorTable.RefBookOwner:
                     results = db.RefBookOwner.AsQueryable();
                     break;
+                case SelectorTable.CargoUnitNumbers:
                 default:
                     results = null;
                     break;
@@ -83,9 +83,10 @@ namespace TransportFormASP.Controllers
             return View();
         }
 
+
         // POST: Test/Create
         [HttpPost]
-        public ActionResult CreateTest([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult CreateTest([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,CargoUnitNumber1,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {

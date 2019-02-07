@@ -39,12 +39,12 @@ namespace TransportFormASP.Controllers
         // GET: RailTransportationRequests/Create
         public ActionResult Create()
         {
+            ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
             return View();
         }
         // POST: RailTransportationRequests/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult Create([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,CargoUnitNumber1,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {
@@ -127,29 +127,26 @@ namespace TransportFormASP.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
-            ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
-            ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
-            ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
-            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
-            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
-            ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod", transportationRequest.idRefBookETSNG);
-            ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod", transportationRequest.idRefBookGNG);
-            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandFrom);
-            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandTo);
-            ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId", transportationRequest.idRefBookOwner);
-            ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
-            ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
+            //ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
+            //ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
+            //ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
+            //ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
+            //ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
+            //ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
+            //ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod", transportationRequest.idRefBookETSNG);
+            //ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod", transportationRequest.idRefBookGNG);
+            //ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandFrom);
+            //ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandTo);
+            //ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId", transportationRequest.idRefBookOwner);
+            //ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
+            //ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-         
+
             return View(transportationRequest);
         }
 
         // POST: RailTransportationRequests/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,RefBookStationFrom,RefBookStationTo,idDepartuePoint,idDestinationPoint,idDepartuePort,idDestinationPort,Shipper,Consignee,idRailwayDispatch,idRefBookCars,idRefBookOwner,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
@@ -158,20 +155,20 @@ namespace TransportFormASP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
-            ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
-            ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
-            ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
-            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
-            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
-            ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod", transportationRequest.idRefBookETSNG);
-            ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod", transportationRequest.idRefBookGNG);
-            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandFrom);
-            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandTo);
-            ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId", transportationRequest.idRefBookOwner);
-            ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
-            ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
-            ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
+            //ViewBag.idDateMonth = new SelectList(db.DateMonth, "idDateMonth", "DateMonth1", transportationRequest.idDateMonth);
+            //ViewBag.idRailwayDispatch = new SelectList(db.RailwayDispatch, "idRailwayDispatch", "DispatchType", transportationRequest.idRailwayDispatch);
+            //ViewBag.idSpecialCondition = new SelectList(db.SpecialCondition, "idSpecialCondition", "SpecialCondition1", transportationRequest.idSpecialCondition);
+            //ViewBag.idRefBookCars = new SelectList(db.RefBookCars, "idRefBookCars", "CarId", transportationRequest.idRefBookCars);
+            //ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
+            //ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
+            //ViewBag.idRefBookETSNG = new SelectList(db.RefBookETSNG, "idRefBookETSNG", "Kod", transportationRequest.idRefBookETSNG);
+            //ViewBag.idRefBookGNG = new SelectList(db.RefBookGNG, "idRefBookGNG", "Kod", transportationRequest.idRefBookGNG);
+            //ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandFrom);
+            //ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LandId", transportationRequest.idRefBookLandTo);
+            //ViewBag.idRefBookOwner = new SelectList(db.RefBookOwner, "idRefBookOwner", "OwnerId", transportationRequest.idRefBookOwner);
+            //ViewBag.RefBookStationFrom = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationFrom);
+            //ViewBag.RefBookStationTo = new SelectList(db.RefBookStations, "idRefBookStation", "Kod", transportationRequest.RefBookStationTo);
+            //ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
             return View(transportationRequest);
         }
         // GET: RailTransportationRequests/Details/5

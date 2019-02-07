@@ -18,7 +18,9 @@ namespace TransportFormASP.Models
         public Nullable<System.Guid> idRefBookETSNG { get; set; }
         public Nullable<System.Guid> idRefBookGNG { get; set; }
         public string DeliveryType { get; set; }
+        [Display(Name = "Станция отправления")]
         public Nullable<System.Guid> RefBookStationFrom { get; set; }
+        [Display(Name = "Станция назначения")]
         public Nullable<System.Guid> RefBookStationTo { get; set; }
         [Display(Name = "Пункт отправления")]
         public string DepartuePoint { get; set; }
@@ -31,15 +33,21 @@ namespace TransportFormASP.Models
         public Nullable<System.Guid> Shipper { get; set; }
         [Display(Name = "Грузополучатель")]
         public Nullable<System.Guid> Consignee { get; set; }
+        [Display(Name = "Вид отправки")]
         public Nullable<System.Guid> idRailwayDispatch { get; set; }
+        [Display(Name = "Род ПС")]
         public Nullable<System.Guid> idRefBookCars { get; set; }
+        [Display(Name = "Принадлежность ПС")]
         public Nullable<System.Guid> idRefBookOwner { get; set; }
         [Display(Name = "Вес груза")]
         public string Weight { get; set; }
+        [Display(Name = "Количество вагонов/контейнеров")]
         public Nullable<int> CargoUnitAmmount { get; set; }
+        [Display(Name = "Особые условия")]
         public Nullable<System.Guid> idSpecialCondition { get; set; }
         [Display(Name = "Примечание")]
         public string Note { get; set; }
+        [Display(Name = "Номера вагонов/контейнеров")]
         public string CargoUnitNumber1 { get; set; }
     
         public virtual DateMonth DateMonth { get; set; }
