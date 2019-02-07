@@ -87,9 +87,10 @@ namespace TransportFormASP.Controllers
             return View();
         }
 
+
         // POST: Test/Create
         [HttpPost]
-        public ActionResult CreateTest([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
+        public ActionResult CreateTest([Bind(Include = "idTransportationRequest,idDateMonth,idRefBookLand,idRefBookLandFrom,idRefBookLandTo,idRefBookETSNG,idRefBookGNG,DeliveryType,idDepartuePoint,idDestinationPoint,Shipper,Consignee,Weight,CargoUnitAmmount,idCargoUnitNumber,idSpecialCondition,Note,idTranshipmentMethod")] TransportationRequest transportationRequest)
         {
             if (ModelState.IsValid)
             {

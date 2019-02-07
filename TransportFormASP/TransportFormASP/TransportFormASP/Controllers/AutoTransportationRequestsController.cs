@@ -38,10 +38,6 @@ namespace TransportFormASP.Controllers
         public ActionResult Create()
         {
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1");
-            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LName");
-            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LName");
-            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
-            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName");
             return View();
         }
 
@@ -59,10 +55,6 @@ namespace TransportFormASP.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idTranshipmentMethod = new SelectList(db.TranshipmentMethod, "idTranshipmentMethod", "TranshipmentMethod1", transportationRequest.idTranshipmentMethod);
-            ViewBag.idRefBookLandFrom = new SelectList(db.RefBookLand, "idRefBookLand", "LName", transportationRequest.idRefBookLandFrom);
-            ViewBag.idRefBookLandTo = new SelectList(db.RefBookLand, "idRefBookLand", "LName", transportationRequest.idRefBookLandTo);
-            ViewBag.Shipper = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Shipper);
-            ViewBag.Consignee = new SelectList(db.RefBookClient, "idRefBookClient", "ShortName", transportationRequest.Consignee);
             return View(transportationRequest);
         }
 

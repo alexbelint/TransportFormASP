@@ -24,8 +24,7 @@
                     existingFilter.value = params.term;
                     existingFilter.editing = true;
                 } else {
-                    //params.filters.push({ column: $(this).attr('column'), value: params.term, editing: true, table: $(this).attr('table') });
-                    params.filters.push({ column: $(this).attr('column'), value: params.term, name: $(this).attr('name'), editing: true, table: $(this).attr('table') });
+                    params.filters.push({ column: $(this).attr('column'), value: params.term, name: $(this).attr('key-name') ? $(this).attr('key-name') : $(this).attr('name'), editing: true, table: $(this).attr('table') });
                 }
                 return { filters: params.filters };
             },

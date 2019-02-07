@@ -24,15 +24,13 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна отправления: </p>
-                @Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control filter-select", table = "2" , column = "LName", name = "idRefBookLand" })
-                @*<select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>*@
+                <select class="form-control filter-select" table="2" column="LName" key-name="idRefBookLand" name="idRefBookLandFrom"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Страна назначения: </p>
-                @Html.DropDownList("idRefBookLandFrom", null, htmlAttributes: new { @class = "form-control" })
-                @*<select class="form-control filter-select" table="2" column="LName" name="idRefBookLand"></select>*@
+                <select class="form-control filter-select" table="2" column="LName" key-name="idRefBookLand" name="idRefBookLandTo"></select>
             </div>
         </div>
         <div class="form-group">
@@ -62,15 +60,13 @@
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузоотправитель: </p>
-                @Html.DropDownList("Shipper", null, htmlAttributes: new { @class = "form-control" })
-                @*<select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>*@
+                <select class="form-control filter-select" table="5" column="ShortName" key-name="idRefBookClient" name="Shipper"></select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
                 <p>Грузополучатель: </p>
-                @Html.DropDownList("Consignee", null, htmlAttributes: new { @class = "form-control" })
-                @*<select class="form-control filter-select" table="5" column="ShortName" name="idRefBookClient"></select>*@
+                <select class="form-control filter-select" table="5" column="ShortName" key-name="idRefBookClient" name="Consignee"></select>
             </div>
         </div>
         <div class="form-group">
