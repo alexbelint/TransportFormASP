@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Главная", "Index", "TransportationRequests", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Все заявки", "Index", "TransportationRequests", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -28,7 +28,7 @@
                             <li>@Html.ActionLink("Автомобильные перевозки", "Index", "AutoTransportationRequests")</li>
                             <li>@Html.ActionLink("Железнодорожные перевозки", "Index", "RailTransportationRequests")</li>
                             <li>@Html.ActionLink("Морские перевозки", "Index", "SeaTransportationRequests")</li>
-                            <li>@Html.ActionLink("test", "IndexTest", "Test")</li>
+                            @*<li>@Html.ActionLink("test", "IndexTest", "Test")</li>*@
                         </ul>
                     </li>
                     <li class="dropdown">

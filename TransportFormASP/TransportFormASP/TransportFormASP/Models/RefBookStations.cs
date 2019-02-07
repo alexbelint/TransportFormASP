@@ -18,13 +18,15 @@ namespace TransportFormASP.Models
         public System.Guid idRefBookStation { get; set; }
         public System.DateTime DateDownload { get; set; }
         public string Kod { get; set; }
+        [Display(Name = "Код Станции")]
         public string NewCode { get; set; }
         public string Name { get; set; }
-        [Display(Name = "Станция отправления")]
+        [Display(Name = "Станция")]
         public string NewName { get; set; }
         public string NewParaT { get; set; }
         public string VrParAdd { get; set; }
         public string VrParDel { get; set; }
+        [Display(Name = "Дорога")]
         public string Road { get; set; }
         public string Land { get; set; }
         public string LinkCode { get; set; }
@@ -32,6 +34,7 @@ namespace TransportFormASP.Models
         public Nullable<System.DateTime> ToDate { get; set; }
         public string RoadID { get; set; }
         public string LandID { get; set; }
+        [Display(Name = "Мнемокод")]
         public string RoadAbbr { get; set; }
         public string LandAbbr { get; set; }
         public string PID { get; set; }

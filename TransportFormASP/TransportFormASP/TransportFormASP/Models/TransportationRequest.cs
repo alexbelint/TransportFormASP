@@ -27,7 +27,9 @@ namespace TransportFormASP.Models
         public string PointAdress { get; set; }
         public string ContactName { get; set; }
         public string ContactPhone { get; set; }
+        [Display(Name = "Грузоотправитель")]
         public Nullable<System.Guid> Shipper { get; set; }
+        [Display(Name = "Грузополучатель")]
         public Nullable<System.Guid> Consignee { get; set; }
         public Nullable<System.Guid> idRailwayDispatch { get; set; }
         public Nullable<System.Guid> idRefBookCars { get; set; }

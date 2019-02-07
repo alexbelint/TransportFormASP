@@ -20,16 +20,16 @@
             @Html.DisplayFor(model => model.DateMonth.DateMonth1)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.RefBookLand.LandId)
+            @Html.DisplayNameFor(model => model.idRefBookLandFrom)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.RefBookLand.LandId)
+            @Html.DisplayFor(model => model.RefBookLand.LName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.RefBookLand1.LandId)
+            @Html.DisplayNameFor(model => model.idRefBookLandTo)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.RefBookLand1.LandId)
+            @Html.DisplayFor(model => model.RefBookLand1.LName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.RefBookGNG.Kod)
@@ -38,10 +38,22 @@
             @Html.DisplayFor(model => model.RefBookGNG.Kod)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.RefBookGNG.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefBookGNG.Name)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.RefBookETSNG.Kod)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.RefBookETSNG.Kod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBookETSNG.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefBookETSNG.Name)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.DepartuePoint)
@@ -55,35 +67,17 @@
         <dd>
             @Html.DisplayFor(model => model.DestinationPoint)
         </dd>
-        @*<dt>
-            @Html.DisplayNameFor(model => model.PointAdress)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PointAdress)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ContactName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactPhone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ContactPhone)
-        </dd>*@
         <dt>
             @Html.DisplayNameFor(model => model.Shipper)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Shipper)
+            @Html.DisplayFor(model => model.RefBookClient.ShortName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Consignee)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Consignee)
+            @Html.DisplayFor(model => model.RefBookClient1.ShortName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Weight)

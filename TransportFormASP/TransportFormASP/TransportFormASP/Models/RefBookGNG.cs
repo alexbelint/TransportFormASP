@@ -17,7 +17,7 @@ namespace TransportFormASP.Models
         public System.DateTime DateDownload { get; set; }
         [Display(Name = "Код ГНГ")]
         public string Kod { get; set; }
-        [Display(Name = "Груз ГНГ")]
+        [Display(Name = "Наименование ГНГ")]
         public string Name { get; set; }
         public string ClassETT { get; set; }
         public string KodETSNG { get; set; }

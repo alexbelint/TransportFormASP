@@ -29,7 +29,6 @@ namespace TransportFormASP.Controllers
                                                        .Include(t => t.RefBookClient)
                                                        .Include(t => t.RefBookClient1)
                                                        .Include(t => t.SpecialCondition);
-
             int pageSize = 16;
             int pageNumber = (page ?? 1);
             return View(transportationRequest.OrderBy(x => x.idTransportationRequest).ToPagedList(pageNumber, pageSize));
