@@ -7,7 +7,8 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Здравствуйте " + User.Identity.GetUserName() + "!", "Delete", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @*@Html.ActionLink("Здравствуйте " + User.Identity.GetUserName() + "!", "Edit", "Account", htmlAttributes: new { title = "Редактировать" })*@
+                @Html.ActionLink("Здравствуйте " + User.Identity.GetUserName() + "!", "Edit", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
         </ul>

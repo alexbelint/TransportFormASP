@@ -178,6 +178,7 @@
     <Compile Include="Controllers\RefBookCarsController.cs" />
     <Compile Include="Controllers\RefBookOwnersController.cs" />
     <Compile Include="Controllers\RefBookStationsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SeaTransportationRequestsController.cs" />
     <Compile Include="Controllers\Select2Controller.cs" />
     <Compile Include="Controllers\SpecialConditionsController.cs" />
@@ -186,10 +187,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902120645365_DataMigration.cs" />
+    <Compile Include="Migrations\201902120645365_DataMigration.Designer.cs">
+      <DependentUpon>201902120645365_DataMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DateMonth.cs">
       <DependentUpon>UpdEntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Identity\ApplicationRole.cs" />
+    <Compile Include="Models\Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Models\Identity\CreateRoleModel.cs" />
     <Compile Include="Models\Identity\EditModel.cs" />
+    <Compile Include="Models\Identity\EditRoleModel.cs" />
     <Compile Include="Models\Identity\LoginModel.cs" />
     <Compile Include="Models\Identity\RegisterModel.cs" />
     <Compile Include="Models\Identity\User.cs" />
@@ -463,6 +473,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -482,6 +495,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902120645365_DataMigration.resx">
+      <DependentUpon>201902120645365_DataMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

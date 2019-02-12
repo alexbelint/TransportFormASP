@@ -122,10 +122,10 @@ namespace TransportFormASP.Controllers
 
         public async Task<ActionResult> Edit()
         {
-            User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+            User user = await UserManager.FindByNameAsync(User.Identity.Name);
             if (user != null)
             {
-                EditModel model = new EditModel { FullName = user.FullName };
+                EditModel model = new EditModel { FullName = user.FullName, Email = user.Email };
                 return View(model);
             }
             return RedirectToAction("Login", "Account");
@@ -138,6 +138,7 @@ namespace TransportFormASP.Controllers
             if (user != null)
             {
                 user.FullName = model.FullName;
+                user.Email = model.Email;
                 IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {

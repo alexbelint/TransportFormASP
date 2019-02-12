@@ -15,6 +15,10 @@ namespace TransportFormASP.App_Start
             // настраиваем контекст и менеджер
             app.CreatePerOwinContext<UserContext>(UserContext.Create);
             app.CreatePerOwinContext<UserManager>(UserManager.Create);
+
+            // регистрация менеджера ролей
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
