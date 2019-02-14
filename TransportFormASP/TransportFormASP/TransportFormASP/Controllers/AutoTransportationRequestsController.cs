@@ -29,9 +29,11 @@ namespace TransportFormASP.Controllers
                                                        .Include(t => t.RefBookClient)
                                                        .Include(t => t.RefBookClient1)
                                                        .Include(t => t.SpecialCondition);
+
             int pageSize = 16;
             int pageNumber = (page ?? 1);
-            return View(transportationRequest.OrderBy(x => x.idTransportationRequest).ToPagedList(pageNumber, pageSize));
+            return View(transportationRequest.OrderBy(x => x.RefBookClient.ShortName).Where(t=>t.TranshipmentMethod.idTranshipmentMethod.ToString() == "715e61dc-4f24-e911-8c2d-000c296921d3")
+                .ToPagedList(pageNumber, pageSize));
         }
         // GET: AutoTransportationRequests/Create
         public ActionResult Create()

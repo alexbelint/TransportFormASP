@@ -32,7 +32,9 @@ namespace TransportFormASP.Controllers
 
             int pageSize = 16;
             int pageNumber = (page ?? 1);
-            return View(transportationRequest.OrderBy(x => x.idTransportationRequest).ToPagedList(pageNumber, pageSize));
+            return View(transportationRequest.OrderBy(x => x.RefBookClient.ShortName)
+                .Where(t => t.TranshipmentMethod.idTranshipmentMethod.ToString() == "320193e2-4f24-e911-8c2d-000c296921d3")
+                .ToPagedList(pageNumber, pageSize));
         }
 
 
